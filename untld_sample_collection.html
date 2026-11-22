@@ -1,0 +1,2841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0A0A0A">
+  <meta name="color-scheme" content="light dark">
+  <title>The Denim Vault — Fall Collection — UNTLD</title>
+  
+  <!-- Switzer Typography via Fontshare CDN -->
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  
+  <!-- Google Fonts: Inter & Unbounded (for THE DENIM VAULT®) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@800;900&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'Unbounded';
+      src: url('./fonts/unbounded_800.woff2') format('woff2');
+      font-weight: 800 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    /* ==========================================================================
+       CARTELLE FRAMER DESIGN SYSTEM — EXACT DESIGN TOKENS
+       Extracted directly from https://gregarious-pages-565888.framer.app/shop/collections/fall-collection
+       Tailored for UNTLD Mumbai Raw Denim Streetwear
+       ========================================================================== */
+    :root {
+      /* Framer Core Color Tokens */
+      --token-bg-primary: #FFFFFF;
+      --token-surface-subtle: #FAFAFA;
+      --token-surface-card: #F4F4F4;
+      --token-surface-muted: #F5F5F5;
+      --token-border-light: #EEEEEE;
+      --token-border-subtle: #E6E6E6;
+      --token-border-inactive: #DADADA;
+      --token-border-focus: #BDBDBD;
+      
+      /* Typography & State Colors */
+      --token-text-primary: #000000;
+      --token-text-secondary: #6D6D6D;
+      --token-text-muted: #AEAEAE;
+      --token-strikethrough-bar: #999999;
+      --token-dark-neutral: #212121;
+
+      /* Cartelle Physics & Easing */
+      --ease-cartelle: cubic-bezier(0.44, 0, 0.56, 1);
+      --ease-spring-image: cubic-bezier(0.25, 1, 0.5, 1);
+      --transition-standard: 0.4s var(--ease-cartelle);
+      --transition-hover: 0.25s var(--ease-cartelle);
+
+      /* Typography Families */
+      --font-primary: 'Switzer', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+      /* Layout Dimensions */
+      --max-width: 1600px;
+      --nav-height: 76px;
+    }
+
+    /* OpenType & Rendering Enhancements */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      --framer-font-open-type-features: 'blwf' on, 'cv09' on, 'cv03' on, 'cv04' on, 'cv11' on;
+    }
+
+    html {
+      background-color: var(--token-bg-primary);
+      color: var(--token-text-primary);
+      font-family: var(--font-primary);
+      -webkit-tap-highlight-color: transparent;
+      -webkit-text-size-adjust: 100%;
+      overscroll-behavior-y: none;
+    }
+
+    button, a, [role="button"], input, select, textarea {
+      touch-action: manipulation;
+    }
+
+    button, [role="button"], .footer-mobile-summary, .product-card, .btn-action {
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    input, textarea, select {
+      font-size: 16px;
+    }
+
+    /* Emil Kowalski active press feedback */
+    button:active, [role="button"]:active, .active-press:active, .header-link:active, .quick-view-btn:active, .checkout-btn:active {
+      transform: scale(0.97);
+      transition: transform 100ms var(--ease-cartelle);
+    }
+
+    /* Lenis Smooth Scroll Weighted Inertia */
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+    .lenis.lenis-smooth iframe {
+      pointer-events: none;
+    }
+
+    body {
+      background-color: var(--token-bg-primary);
+      color: var(--token-text-primary);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       1. FIXED STICKY NAVIGATION (TRANSPARENT OVER HERO, FROSTED WHITE ON SCROLL)
+       - Over Hero: 100% transparent, crisp white typography & border-bottom rgba(255,255,255,0.12)
+       - Scrolled past Hero: Frosted white background (rgba(255, 255, 255, 0.95)), blur(20px),
+         hairline bottom border #EEEEEE, black text & controls
+       ========================================================================== */
+    .sticky-header-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      transition: background-color 0.25s ease, border-color 0.25s ease, padding 0.25s ease;
+      transform: translateZ(0);
+      will-change: background-color, border-color;
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    .sticky-header-container.scrolled {
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--token-border-light);
+    }
+
+    .sticky-nav-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      height: var(--nav-height);
+      padding: 0 40px;
+    }
+
+    /* Left Nav Links matching before.html screenshot */
+    .header-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header-link {
+      font-family: var(--font-primary);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      text-decoration: none;
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s ease, color 0.3s ease;
+    }
+
+    .header-link:hover {
+      opacity: 0.65;
+    }
+
+    .sticky-header-container.scrolled .header-link {
+      color: var(--token-text-primary);
+    }
+
+    /* Brand Center Identity matching before.html screenshot */
+    .header-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-link {
+      font-family: var(--font-primary);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s ease, color 0.3s ease;
+    }
+
+    .brand-link:hover {
+      opacity: 0.8;
+    }
+
+    .brand-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+
+    .sticky-header-container.scrolled .brand-link {
+      color: var(--token-text-primary);
+    }
+
+    .sticky-header-container.scrolled .brand-dot {
+      background-color: var(--token-text-primary);
+    }
+
+    /* Right Navigation: perfectly aligned with left nav */
+    .header-nav-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 32px;
+    }
+
+    /* Header action buttons & links (100% consistent typography & vertical alignment) */
+    .header-btn {
+      font-family: var(--font-primary);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      line-height: 1;
+      transition: opacity 0.2s ease, color 0.3s ease;
+    }
+
+    .header-btn:hover {
+      opacity: 0.65;
+    }
+
+    .sticky-header-container.scrolled .header-btn {
+      color: var(--token-text-primary);
+    }
+
+    .header-cart-count {
+      margin-left: 2px;
+      display: inline-block;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      transition: transform 0.2s ease;
+    }
+
+    /* Mobile Hamburger Icon */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background-color: #FFFFFF;
+      transition: transform var(--transition-standard), opacity var(--transition-standard), background-color 0.3s ease;
+    }
+
+    .sticky-header-container.scrolled .mobile-menu-btn span {
+      background-color: var(--token-text-primary);
+    }
+
+    /* ==========================================================================
+       HERO SECTION — THE DENIM VAULT® FULL BLEED THEMATIC SPECIMEN
+       Exact layout and typography matching before.html screenshot:
+       - Full bleed, min-height 100vh
+       - Background image with 62% dark linear gradient overlay
+       - Center: THE DENIM VAULT® in Unbounded 900
+       - Bottom Left: EXPLORE THE DROP ↓
+       - Bottom Right: AUTUMN / WINTER 2024
+       ========================================================================== */
+    .hero-section {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      position: relative;
+      background-color: #121212;
+      background-image: 
+        linear-gradient(rgba(18, 18, 18, 0.62), rgba(18, 18, 18, 0.62)),
+        url('https://cdn.shopify.com/s/files/1/0661/1478/1415/files/SKR05069.jpg?v=1793878719');
+      background-position: center 25%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 96px 24px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-family: 'Unbounded', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: clamp(40px, 6.8vw, 84px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin: 0;
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 6px;
+      user-select: none;
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .hero-title:hover {
+      transform: scale(1.015);
+    }
+
+    .hero-trademark {
+      font-family: 'Unbounded', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.32em;
+      line-height: 1;
+      font-weight: 800;
+      position: relative;
+      top: 0.12em;
+      opacity: 0.9;
+    }
+
+    .hero-bottom-left {
+      position: absolute;
+      bottom: 64px;
+      left: 48px;
+      z-index: 2;
+    }
+
+    .hero-explore-link {
+      font-family: var(--font-primary);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+    }
+
+    .hero-explore-link:hover {
+      opacity: 0.8;
+      transform: translateY(2px);
+    }
+
+    .hero-bottom-right {
+      position: absolute;
+      bottom: 64px;
+      right: 48px;
+      z-index: 2;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: var(--font-primary);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       2. MAIN CONTENT WRAPPER & COLLECTION HEADER
+       Cartelle specs: max-width 1600px, padding 80px 40px 100px
+       Headline: Switzer 500, 48px, line-height 1.2, letter-spacing -0.03em
+       Subtitle: Switzer 500, 22px, line-height 1.4, letter-spacing -0.02em
+       ========================================================================== */
+    .main-page-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 80px 40px 100px;
+    }
+
+    .collection-header-section {
+      padding-top: 24px;
+      margin-bottom: 56px;
+    }
+
+    .collection-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--token-text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .collection-breadcrumb span.sep {
+      color: var(--token-border-inactive);
+    }
+
+    .collection-title {
+      font-size: 48px;
+      font-weight: 500;
+      line-height: 1.2em;
+      letter-spacing: -0.03em;
+      color: var(--token-text-primary);
+      max-width: 680px;
+      text-wrap: balance;
+      margin-bottom: 16px;
+    }
+
+    .collection-description {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.45em;
+      letter-spacing: -0.02em;
+      color: var(--token-text-primary);
+      max-width: 780px;
+      opacity: 0.92;
+    }
+
+    @media (max-width: 768px) {
+      .desk-break {
+        display: none;
+      }
+    }
+
+    /* Category Filter / Sort Ribbon */
+    .collection-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--token-border-light);
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .filter-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--token-text-secondary);
+      background-color: var(--token-surface-subtle);
+      border: 1px solid var(--token-border-light);
+      border-radius: 999px;
+      transition: all var(--transition-hover);
+    }
+
+    .filter-btn:hover {
+      color: var(--token-text-primary);
+      border-color: var(--token-border-focus);
+    }
+
+    .filter-btn.active {
+      background-color: var(--token-text-primary);
+      color: var(--token-bg-primary);
+      border-color: var(--token-text-primary);
+      font-weight: 500;
+    }
+
+    .toolbar-count {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--token-text-secondary);
+    }
+
+    /* ==========================================================================
+       3. SIGNATURE CARTELLE PRODUCT GRID
+       Desktop: 3 columns, tight 8px column gap, 40px row gap!
+       Tablet: 2 columns, 8px column gap, 40px row gap
+       Mobile: 1 column, 32px gap
+       ========================================================================== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(50px, 1fr));
+      column-gap: 8px; /* Cartelle 8px tight column gap! */
+      row-gap: 48px;   /* Cartelle 40-48px row gap */
+      width: 100%;
+      margin-bottom: 96px;
+    }
+
+    /* Product Card Component */
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 1:1 Aspect Ratio Image Container */
+    .product-image-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-color: var(--token-surface-card);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    /* Dual-Image Stack for Smooth Spring Hover Crossfade */
+    .product-image-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    /* Secondary image lies underneath */
+    .product-image-container .secondary-image {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    /* Main image is top layer and fades to 0 on hover */
+    .product-image-container .main-image {
+      z-index: 2;
+      opacity: 1;
+      will-change: opacity;
+      transition: opacity 0.4s ease;
+    }
+
+    .product-card:hover .main-image {
+      opacity: 0;
+    }
+
+    /* Floating Micro-Badge on Card */
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 3;
+      padding: 4px 10px;
+      background-color: #FFFFFF;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--token-text-primary);
+      pointer-events: none;
+    }
+
+    .card-badge.sale {
+      background-color: var(--token-text-primary);
+      color: var(--token-bg-primary);
+    }
+
+    /* Quick Action Pill on Hover */
+    .card-quick-actions {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      z-index: 3;
+      display: flex;
+      gap: 6px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .product-card:hover .card-quick-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .quick-add-btn,
+    .quick-view-btn {
+      flex: 1;
+      padding: 10px 14px;
+      background-color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--token-text-primary);
+      text-align: center;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .quick-add-btn:hover {
+      background-color: var(--token-text-primary);
+      color: var(--token-bg-primary);
+    }
+
+    .quick-view-btn:hover {
+      background-color: var(--token-dark-neutral);
+      color: var(--token-bg-primary);
+    }
+
+    /* Product Details Typography (Cartelle Presets) */
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .product-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    /* Preset .framer-styles-preset-13n02sm */
+    .product-name {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.4em;
+      letter-spacing: -0.03em;
+      color: var(--token-text-primary);
+      transition: color var(--transition-hover);
+    }
+
+    .product-card:hover .product-name {
+      color: var(--token-text-primary);
+    }
+
+    /* Preset .framer-styles-preset-1a6wygs & .framer-styles-preset-saf75d */
+    .product-price-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.4em;
+      letter-spacing: -0.02em;
+    }
+
+    .price-active {
+      color: var(--token-text-secondary);
+    }
+
+    .price-original {
+      position: relative;
+      color: var(--token-text-muted);
+    }
+
+    .price-strike-line {
+      position: absolute;
+      top: calc(47.8% - 0.5px);
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: var(--token-strikethrough-bar);
+    }
+
+    .product-spec-tag {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--token-text-secondary);
+      letter-spacing: -0.01em;
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       4. EDITORIAL ATELIER & STORE FEATURE SECTION
+       Showcasing untld_store_mumbai.jpg with Cartelle clean layout
+       ========================================================================== */
+    .atelier-feature-section {
+      border-top: 1px solid var(--token-border-light);
+      padding-top: 80px;
+      margin-bottom: 96px;
+    }
+
+    .atelier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .atelier-image-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 400px;
+      background-color: var(--token-surface-card);
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .atelier-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: contrast(1.02) brightness(0.99);
+      transition: transform 1.2s var(--ease-cartelle);
+    }
+
+    .atelier-image-card:hover img {
+      transform: scale(1.02);
+    }
+
+    .atelier-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-right: 20px;
+    }
+
+    .atelier-sub {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--token-text-secondary);
+    }
+
+    .atelier-title {
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1.2em;
+      letter-spacing: -0.03em;
+      color: var(--token-text-primary);
+    }
+
+    .atelier-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6em;
+      color: var(--token-text-secondary);
+    }
+
+    .atelier-specs-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--token-border-light);
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .spec-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--token-text-muted);
+    }
+
+    .spec-val {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--token-text-primary);
+    }
+
+    /* ==========================================================================
+       5. WORDMARK FOOTER (SHADCN / TAILWIND REPLICANT TAILORED FOR UNTLD)
+       - Top left: UNTLD display wordmark + description + live emerald status dot
+       - Columns: Desktop 3-column nav; Mobile folding <details> accordions with rotating +
+       - Bottom line: © 2026 UNTLD MUMBAI, email link, atelier coordinates
+       - Huge background-clipped watermark: UNTLD fading into the page
+       ========================================================================== */
+    .wordmark-footer {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--token-bg-primary);
+      color: var(--token-text-primary);
+      border-top: 1px solid var(--token-border-light);
+      content-visibility: auto;
+      contain-intrinsic-size: 600px;
+    }
+
+    .wordmark-footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 48px;
+      padding: 64px 40px 40px;
+    }
+
+    .footer-brand-side {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-wordmark-title {
+      display: block;
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-family: var(--font-display, var(--font-primary));
+      color: var(--token-text-primary);
+    }
+
+    .footer-wordmark-desc {
+      margin-top: 16px;
+      max-width: 300px;
+      font-size: 14px;
+      line-height: 22px;
+      color: var(--token-text-secondary);
+    }
+
+    .footer-status-line {
+      margin-top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--token-text-secondary);
+    }
+
+    .footer-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #10b981;
+      box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+    }
+
+    .footer-nav-desktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .footer-nav-col-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(109, 109, 109, 0.8);
+      margin-bottom: 16px;
+    }
+
+    .footer-nav-links-list {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .footer-nav-link {
+      font-size: 14px;
+      color: var(--token-text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav-link:hover {
+      color: var(--token-text-primary);
+    }
+
+    /* Mobile Accordion Nav */
+    .footer-nav-mobile {
+      display: none;
+      grid-gap: 4px;
+      margin: 0 -16px;
+    }
+
+    .footer-mobile-details {
+      border-radius: 12px;
+      overflow: hidden;
+      transition: background-color 0.2s ease;
+    }
+
+    .footer-mobile-details[open] {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    .footer-mobile-summary {
+      display: flex;
+      height: 56px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--token-text-secondary);
+    }
+
+    .footer-mobile-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .footer-mobile-plus {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--token-text-secondary);
+      transition: transform 0.3s ease;
+    }
+
+    .footer-mobile-details[open] .footer-mobile-plus {
+      transform: rotate(45deg);
+    }
+
+    .footer-mobile-list {
+      padding: 0 16px 14px;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-mobile-link {
+      display: block;
+      padding: 8px 0;
+      font-size: 15px;
+      color: var(--token-text-secondary);
+      text-decoration: none;
+    }
+
+    /* Bottom Line */
+    .wordmark-footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+      padding: 0 40px calc(24px + env(safe-area-inset-bottom, 0px));
+      font-size: 13px;
+      color: rgba(109, 109, 109, 0.8);
+      flex-wrap: wrap;
+    }
+
+    .wordmark-footer-bottom .footer-copy {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .wordmark-footer-bottom a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .wordmark-footer-bottom a:hover {
+      color: var(--token-text-primary);
+    }
+
+    .wordmark-footer-bottom .footer-credit-link {
+      margin-left: auto;
+    }
+
+    /* Huge Wordmark Watermark Fading into Background */
+    .footer-giant-watermark {
+      pointer-events: none;
+      margin-bottom: -0.2em;
+      text-align: center;
+      font-size: clamp(96px, 24vw, 360px);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.16), transparent 85%);
+      font-family: var(--font-display, var(--font-primary));
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+      .wordmark-footer-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 48px 24px 24px;
+      }
+      .footer-nav-desktop {
+        display: none;
+      }
+      .footer-nav-mobile {
+        display: grid;
+      }
+      .wordmark-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 0 24px 24px;
+      }
+      .wordmark-footer-bottom .footer-credit-link {
+        margin-left: 0;
+      }
+      .footer-giant-watermark {
+        font-size: 30vw;
+      }
+    }
+
+    /* ==========================================================================
+       6. INTERACTIVE SLIDE-OVER BAG / CART DRAWER
+       Smooth slide-over from right edge with Cartelle spring feel
+       ========================================================================== */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s var(--ease-cartelle);
+    }
+
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 440px;
+      height: 100vh;
+      height: 100dvh;
+      background-color: var(--token-bg-primary);
+      z-index: 2001;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.45s var(--ease-cartelle);
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.08);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--token-border-light);
+    }
+
+    .drawer-title {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--token-text-primary);
+    }
+
+    .drawer-close-btn {
+      font-size: 20px;
+      line-height: 1;
+      color: var(--token-text-secondary);
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cart-empty-message {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--token-text-secondary);
+      font-size: 15px;
+    }
+
+    .cart-item-card {
+      display: flex;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--token-border-light);
+    }
+
+    .cart-item-thumb {
+      width: 72px;
+      height: 72px;
+      background-color: var(--token-surface-card);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .cart-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-meta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cart-item-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--token-text-primary);
+    }
+
+    .cart-item-sub {
+      font-size: 13px;
+      color: var(--token-text-secondary);
+    }
+
+    .cart-item-qty-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--token-border-light);
+      border-radius: 4px;
+    }
+
+    .qty-btn {
+      padding: 2px 8px;
+      font-size: 13px;
+      color: var(--token-text-secondary);
+    }
+
+    .qty-val {
+      padding: 0 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .cart-item-remove {
+      font-size: 12px;
+      color: var(--token-text-muted);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .drawer-footer {
+      padding: 24px 28px calc(24px + env(safe-area-inset-bottom, 0px));
+      border-top: 1px solid var(--token-border-light);
+      background-color: var(--token-surface-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--token-text-primary);
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 16px;
+      background-color: var(--token-text-primary);
+      color: var(--token-bg-primary);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+      transition: background-color var(--transition-hover);
+    }
+
+    .checkout-btn:hover {
+      background-color: var(--token-dark-neutral);
+    }
+
+    /* ==========================================================================
+       7. QUICK VIEW / MILLIMETER PATTERN MATRIX MODAL
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      z-index: 3000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s var(--ease-cartelle);
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-window {
+      background-color: var(--token-bg-primary);
+      width: 100%;
+      max-width: 860px;
+      max-height: 90vh;
+      max-height: 90dvh;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 36px 36px calc(36px + env(safe-area-inset-bottom, 0px));
+      position: relative;
+      transform: translateY(16px);
+      transition: transform 0.35s var(--ease-cartelle);
+    }
+
+    .modal-overlay.open .modal-window {
+      transform: translateY(0);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      line-height: 1;
+      color: var(--token-text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      z-index: 5;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--token-text-primary);
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* Uncropped Full Image Display */
+    .modal-gallery-img {
+      width: 100%;
+      min-height: 480px;
+      background-color: var(--token-surface-subtle);
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-in;
+      position: relative;
+      border: 1px solid var(--token-border-light);
+    }
+
+    .modal-gallery-img img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .modal-gallery-img:hover img {
+      transform: scale(1.02);
+    }
+
+    .modal-img-zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      padding: 3px 8px;
+      background-color: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 2px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--token-text-primary);
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    .modal-content-details {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .modal-title {
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--token-text-primary);
+    }
+
+    .modal-price-line {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--token-text-secondary);
+    }
+
+    .modal-desc-line {
+      font-size: 13px;
+      color: var(--token-text-secondary);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .modal-sub-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--token-text-secondary);
+    }
+
+    .modal-size-picker {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .size-pill {
+      min-width: 44px;
+      padding: 7px 12px;
+      border: 1px solid var(--token-border-light);
+      background-color: var(--token-bg-primary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: center;
+      transition: all var(--transition-hover);
+    }
+
+    .size-pill:hover,
+    .size-pill.selected {
+      background-color: var(--token-text-primary);
+      color: var(--token-bg-primary);
+      border-color: var(--token-text-primary);
+    }
+
+    /* Minimalist Measurement Header with CM / IN Toggle */
+    .matrix-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .unit-toggle-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .unit-toggle-btn {
+      background: none;
+      border: none;
+      padding: 2px 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--token-border-inactive);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .unit-toggle-btn:hover {
+      color: var(--token-text-primary);
+    }
+
+    .unit-toggle-btn.active {
+      color: var(--token-text-primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .unit-divider {
+      color: var(--token-border-inactive);
+      font-size: 10px;
+    }
+
+    /* Minimalist Table Matrix */
+    .sizing-matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .sizing-matrix-table th,
+    .sizing-matrix-table td {
+      border: 1px solid var(--token-border-light);
+      padding: 6px 4px;
+      text-align: center;
+      font-feature-settings: 'tnum' on, 'lnum' on;
+    }
+
+    .sizing-matrix-table th {
+      background-color: var(--token-surface-subtle);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--token-text-secondary);
+    }
+
+    .sizing-matrix-table tr.active-size-row {
+      background-color: var(--token-surface-subtle);
+      font-weight: 600;
+      color: var(--token-text-primary);
+    }
+
+    /* Lightbox Fullscreen View */
+    .image-lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.94);
+      z-index: 5000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      cursor: zoom-out;
+    }
+
+    .image-lightbox-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .image-lightbox-overlay img {
+      max-width: 95vw;
+      max-height: 95vh;
+      object-fit: contain;
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 8px;
+    }
+
+    /* ==========================================================================
+       8. HAPTIC TOAST NOTIFICATION
+       ========================================================================== */
+    .haptic-toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 4000;
+      padding: 14px 22px;
+      background-color: var(--token-text-primary);
+      color: var(--token-bg-primary);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: all 0.35s var(--ease-cartelle);
+    }
+
+    .haptic-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .toast-check {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background-color: #27ae60;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 18px;
+      font-size: 11px;
+    }
+
+    /* ==========================================================================
+       9. RESPONSIVE BREAKPOINTS (CARTELLE SPEC)
+       Tablet: 810px to 1199px
+       Mobile: < 810px
+       ========================================================================== */
+    @media (max-width: 1199.98px) {
+      .main-page-wrapper {
+        padding: 110px 40px 80px;
+      }
+
+      .sticky-nav-inner {
+        padding: 0 32px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(50px, 1fr));
+        column-gap: 8px;
+        row-gap: 40px;
+      }
+
+      .collection-title {
+        font-size: 38px;
+      }
+
+      .collection-description {
+        font-size: 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .atelier-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .atelier-image-card {
+        height: auto;
+        aspect-ratio: 16 / 9;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 809.98px) {
+      :root {
+        --nav-height: 64px;
+      }
+
+      .sticky-nav-inner {
+        padding: 0 20px;
+      }
+
+      .header-nav-left {
+        display: none;
+      }
+
+      .header-nav-right .header-search-btn,
+      .header-nav-right a {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .hero-section {
+        min-height: 85vh;
+        padding: 100px 20px 80px 20px;
+      }
+
+      .hero-title {
+        font-size: clamp(30px, 9.5vw, 54px);
+      }
+
+      .hero-bottom-left {
+        left: 24px;
+        bottom: 36px;
+      }
+
+      .hero-bottom-right {
+        display: none;
+      }
+
+      .main-page-wrapper {
+        padding: 50px 20px 64px;
+      }
+
+      .collection-header-section {
+        margin-bottom: 36px;
+      }
+
+      .collection-title {
+        font-size: 28px;
+        letter-spacing: -0.04em;
+      }
+
+      .collection-description {
+        font-size: 18px;
+      }
+
+      .collection-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      /* Mobile: 1 column product layout */
+      .product-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+      }
+
+      .card-quick-actions {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .site-footer {
+        padding: 60px 20px 32px;
+      }
+
+      .modal-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .modal-window {
+        padding: 24px;
+      }
+    }
+
+    /* Mobile Navigation Drawer */
+    .mobile-nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 2500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s var(--ease-cartelle);
+    }
+    .mobile-nav-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-nav-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 82%;
+      max-width: 360px;
+      height: 100vh;
+      height: 100dvh;
+      background-color: var(--token-bg-primary);
+      z-index: 2501;
+      padding: calc(24px + env(safe-area-inset-top, 0px)) 28px calc(28px + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      flex-direction: column;
+      transform: translateX(-100%);
+      transition: transform 0.35s var(--ease-cartelle);
+      box-shadow: 8px 0 32px rgba(0, 0, 0, 0.08);
+      overscroll-behavior: contain;
+    }
+    .mobile-nav-panel.open {
+      transform: translateX(0);
+    }
+    .mobile-nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--token-border-light);
+      margin-bottom: 28px;
+    }
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      flex: 1;
+    }
+    .mobile-nav-links a {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--token-text-primary);
+      text-decoration: none;
+    }
+    .mobile-nav-footer {
+      padding-top: 24px;
+      border-top: 1px solid var(--token-border-light);
+      font-size: 12px;
+      color: var(--token-text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. FIXED STICKY NAVIGATION (MATCHING VISUAL SCREENSHOT)
+       ========================================================================== -->
+  <header class="sticky-header-container" id="mainHeader">
+    <div class="sticky-nav-inner">
+      
+      <!-- Left Navigation Links -->
+      <nav class="header-nav-left">
+        <a href="#vault" class="header-link">SHOP</a>
+        <a href="#vault" class="header-link">COLLECTIONS</a>
+        <a href="#vault" class="header-link">MOST WANTED</a>
+        <a href="#atelier" class="header-link">STORES</a>
+      </nav>
+
+      <!-- Center Brand Identity -->
+      <div class="header-center">
+        <a href="#hero" class="brand-link" aria-label="UNTLD Home">
+          <span>UNTLD</span>
+          <span class="brand-dot"></span>
+        </a>
+      </div>
+
+      <!-- Right Controls: SEARCH, ACCOUNT, CART (0) matching exact typography & alignment -->
+      <div class="header-nav-right">
+        <button class="header-btn header-search-btn" type="button" onclick="showToast('Catalog search indexing 6 master garments')" aria-label="Search">
+          <span>SEARCH</span>
+        </button>
+
+        <a href="#atelier" class="header-link">ACCOUNT</a>
+
+        <button class="header-btn header-cart-btn" type="button" id="cartBtn" onclick="toggleCartDrawer(true)" aria-label="View Shopping Bag">
+          <span>CART</span>
+          <span class="header-cart-count">(<span id="bagCountBadge">0</span>)</span>
+        </button>
+
+        <button class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="toggleMobileNav(false)">
+    <div class="mobile-nav-panel" id="mobileNavPanel" onclick="event.stopPropagation()">
+      <div class="mobile-nav-header">
+        <a href="#hero" class="brand-link" onclick="toggleMobileNav(false)">
+          <span>UNTLD</span><span class="brand-dot"></span>
+        </a>
+        <button class="drawer-close-btn" onclick="toggleMobileNav(false)" aria-label="Close Navigation">✕</button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="#vault" onclick="toggleMobileNav(false)">The Denim Vault</a>
+        <a href="#vault" onclick="toggleMobileNav(false)">Fall 2026 Core</a>
+        <a href="#atelier" onclick="toggleMobileNav(false)">Flagship Atelier</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <div>BANDRA WEST // 19.0596° N, 72.8295° E</div>
+        <div>PALI HILL, MUMBAI 400050</div>
+        <a href="mailto:vault@untld.in" style="color: var(--token-text-primary); text-decoration: underline;">vault@untld.in</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION: THE DENIM VAULT® FULL BLEED VISUAL (BEFORE DESIGN INTEGRATION)
+       Matches before.html and screenshot:
+       - Full bleed dark image with 62% linear gradient
+       - Center: THE DENIM VAULT® in Unbounded 900
+       - Bottom Left: EXPLORE THE DROP ↓ (glides smoothly to collection)
+       - Bottom Right: AUTUMN / WINTER 2024
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title" title="Hover to focus">
+        <span>THE DENIM VAULT</span>
+        <span class="hero-trademark">®</span>
+      </h1>
+    </div>
+
+    <div class="hero-bottom-left">
+      <a href="#vault" class="hero-explore-link">
+        <span>EXPLORE THE DROP</span>
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+
+    <div class="hero-bottom-right">
+      <span>AUTUMN / WINTER 2024</span>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       2. COLLECTION HEADER & TOOLBAR
+       ========================================================================== -->
+  <main class="main-page-wrapper">
+    
+    <section class="collection-header-section" id="vault">
+      <!-- Breadcrumb -->
+      <div class="collection-breadcrumb">
+        <span>UNTLD</span>
+        <span class="sep">/</span>
+        <span>Collections</span>
+        <span class="sep">/</span>
+        <span>The Denim Vault (Fall 2026)</span>
+      </div>
+
+      <!-- Exact Cartelle Typography Scales -->
+      <h1 class="collection-title">Fall Collection</h1>
+      <p class="collection-description">
+        Vintage wash denim engineered with relaxed bootcut architecture.<br class="desk-break">Tailored for effortless street drape and everyday rotation.
+      </p>
+    </section>
+
+    <!-- ==========================================================================
+       3. SIGNATURE CARTELLE PRODUCT GRID (3-COLUMN, 8PX GAP, 1:1 SQUARE IMAGES)
+       ========================================================================== -->
+    <section class="product-grid" id="productGrid">
+
+      <!-- PRODUCT 1: Vintage Bootcut Denim (Sun-faded Blue) -->
+      <article class="product-card" data-category="baggy raw" data-id="p1" data-inr="1199" data-inr-orig="1999" data-usd="15" data-usd-orig="24" onclick="openProductModal('p1')">
+        <div class="product-image-container">
+          <span class="card-badge sale">Sale</span>
+          <!-- Dual image stack: main fades to 0 on hover revealing secondary -->
+          <img class="secondary-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDOCTOBER20252.0-332_b7fc0a9a-047d-4cd5-a2cd-7841cfa29c95.jpg?v=1762617260&width=800" 
+               alt="Vintage Bootcut Denim Sun-faded Blue Editorial Look" loading="lazy">
+          <img class="main-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDOCTOBER20252.0-355.jpg?v=1762617260&width=800" 
+               alt="Vintage Bootcut Denim Sun-faded Blue Front View" loading="eager">
+          
+          <div class="card-quick-actions">
+            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p1', 'Vintage Bootcut Denim (Sun-faded Blue)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDOCTOBER20252.0-355.jpg?v=1762617260&width=800')">+ Add To Bag</button>
+            <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p1')">Specs</button>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-title-row">
+            <h2 class="product-name">Vintage Bootcut Denim</h2>
+            <div class="product-price-wrap">
+              <span class="price-active" data-price-active>RS. 1,199</span>
+              <span class="price-original" data-price-orig>
+                RS. 1,999
+                <span class="price-strike-line"></span>
+              </span>
+            </div>
+          </div>
+          <div class="product-spec-tag">Sun-faded Blue • 14.5oz Custom Slub • Relaxed Flare</div>
+        </div>
+      </article>
+
+      <!-- PRODUCT 2: Vintage Bootcut Denim (Deep Blue) -->
+      <article class="product-card" data-category="baggy" data-id="p2" data-inr="1199" data-usd="15" onclick="openProductModal('p2')">
+        <div class="product-image-container">
+          <span class="card-badge">Core Drop</span>
+          <img class="secondary-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDFEB2026-132.jpg?v=1771841238&width=800" 
+               alt="Vintage Bootcut Denim Deep Blue Editorial View" loading="lazy">
+          <img class="main-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDFEB2026-130.jpg?v=1771841238&width=800" 
+               alt="Vintage Bootcut Denim Deep Blue Studio Front View" loading="eager">
+          
+          <div class="card-quick-actions">
+            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p2', 'Vintage Bootcut Denim (Deep Blue)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDFEB2026-130.jpg?v=1771841238&width=800')">+ Add To Bag</button>
+            <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p2')">Specs</button>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-title-row">
+            <h2 class="product-name">Vintage Bootcut Denim (Deep Blue)</h2>
+            <div class="product-price-wrap">
+              <span class="price-active" data-price-active>RS. 1,199</span>
+            </div>
+          </div>
+          <div class="product-spec-tag">Deep Blue • 15.5oz Heavyweight Weave • Subtle Bootcut Stack</div>
+        </div>
+      </article>
+
+      <!-- PRODUCT 3: Vintage Bootcut Denim (Black Rinse) -->
+      <article class="product-card" data-category="baggy raw capsule" data-id="p3" data-inr="1199" data-inr-orig="1899" data-usd="15" data-usd-orig="22" onclick="openProductModal('p3')">
+        <div class="product-image-container">
+          <span class="card-badge sale">Limited</span>
+          <img class="secondary-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2025_5x4_HQ_-10.jpg?v=1737899144&width=800" 
+               alt="Vintage Bootcut Denim Black Rinse Lookbook Cut" loading="lazy">
+          <img class="main-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2025_5x4_HQ_-13.jpg?v=1737899144&width=800" 
+               alt="Vintage Bootcut Denim Black Rinse Detail Front" loading="eager">
+          
+          <div class="card-quick-actions">
+            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p3', 'Vintage Bootcut Denim (Black Rinse)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2025_5x4_HQ_-13.jpg?v=1737899144&width=800')">+ Add To Bag</button>
+            <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p3')">Specs</button>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-title-row">
+            <h2 class="product-name">Vintage Bootcut Denim (Black Rinse)</h2>
+            <div class="product-price-wrap">
+              <span class="price-active" data-price-active>RS. 1,199</span>
+              <span class="price-original" data-price-orig>
+                RS. 1,899
+                <span class="price-strike-line"></span>
+              </span>
+            </div>
+          </div>
+          <div class="product-spec-tag">Black Rinse • Sulfur-Dyed Rigid Denim • Tailored Inseam</div>
+        </div>
+      </article>
+
+      <!-- PRODUCT 4: Vintage Bootcut Denim (Washed Grey) -->
+      <article class="product-card" data-category="baggy raw" data-id="p4" data-inr="1199" data-usd="15" onclick="openProductModal('p4')">
+        <div class="product-image-container">
+          <span class="card-badge">Permanent</span>
+          <img class="secondary-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMARCH2026-131.jpg?v=1774380255&width=800" 
+               alt="Vintage Bootcut Denim Washed Grey Angle Shot" loading="lazy">
+          <img class="main-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMARCH2026-142.jpg?v=1774380255&width=800" 
+               alt="Vintage Bootcut Denim Washed Grey Rigid Denim" loading="eager">
+          
+          <div class="card-quick-actions">
+            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p4', 'Vintage Bootcut Denim (Washed Grey)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMARCH2026-142.jpg?v=1774380255&width=800')">+ Add To Bag</button>
+            <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p4')">Specs</button>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-title-row">
+            <h2 class="product-name">Vintage Bootcut Denim (Washed Grey)</h2>
+            <div class="product-price-wrap">
+              <span class="price-active" data-price-active>RS. 1,199</span>
+            </div>
+          </div>
+          <div class="product-spec-tag">Washed Grey • Mineral Washed Charcoal • Architectural Flare</div>
+        </div>
+      </article>
+
+      <!-- PRODUCT 5: Vintage Bootcut Denim (Coastal Blue) -->
+      <article class="product-card" data-category="baggy" data-id="p5" data-inr="1199" data-inr-orig="1799" data-usd="15" data-usd-orig="21" onclick="openProductModal('p5')">
+        <div class="product-image-container">
+          <span class="card-badge sale">Sale</span>
+          <img class="secondary-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMAY2026-64.jpg?v=1780597143&width=800" 
+               alt="Vintage Bootcut Denim Coastal Blue Back Angle" loading="lazy">
+          <img class="main-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMAY2026-57.jpg?v=1780597144&width=800" 
+               alt="Vintage Bootcut Denim Coastal Blue Front" loading="eager">
+          
+          <div class="card-quick-actions">
+            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p5', 'Vintage Bootcut Denim (Coastal Blue)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMAY2026-57.jpg?v=1780597144&width=800')">+ Add To Bag</button>
+            <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p5')">Specs</button>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-title-row">
+            <h2 class="product-name">Vintage Bootcut Denim (Coastal Blue)</h2>
+            <div class="product-price-wrap">
+              <span class="price-active" data-price-active>RS. 1,199</span>
+              <span class="price-original" data-price-orig>
+                RS. 1,799
+                <span class="price-strike-line"></span>
+              </span>
+            </div>
+          </div>
+          <div class="product-spec-tag">Coastal Blue • Light Vintage Bleach • Signature Bootcut Hem</div>
+        </div>
+      </article>
+
+      <!-- PRODUCT 6: Vintage Bootcut Denim (Midnight Blue) -->
+      <article class="product-card" data-category="baggy raw capsule" data-id="p6" data-inr="1499" data-usd="18" onclick="openProductModal('p6')">
+        <div class="product-image-container">
+          <span class="card-badge">Vault Spec</span>
+          <img class="secondary-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2026-71.jpg?v=1769587335&width=800" 
+               alt="Vintage Bootcut Denim Midnight Blue Stance" loading="lazy">
+          <img class="main-image" 
+               src="https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2026-76.jpg?v=1769587335&width=800" 
+               alt="Vintage Bootcut Denim Midnight Blue Front Shot" loading="eager">
+          
+          <div class="card-quick-actions">
+            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p6', 'Vintage Bootcut Denim (Midnight Blue)', 1499, 18, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2026-76.jpg?v=1769587335&width=800')">+ Add To Bag</button>
+            <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p6')">Specs</button>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-title-row">
+            <h2 class="product-name">Vintage Bootcut Denim (Midnight Blue)</h2>
+            <div class="product-price-wrap">
+              <span class="price-active" data-price-active>RS. 1,499</span>
+            </div>
+          </div>
+          <div class="product-spec-tag">Midnight Blue • Dark Indigo Rinse • Extended Hem Break</div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ==========================================================================
+       4. ATELIER FLAGSHIP SPOTLIGHT (BANDRA WEST, MUMBAI)
+       Featuring untld_store_mumbai.jpg
+       ========================================================================== -->
+    <section class="atelier-feature-section" id="atelier">
+      <div class="atelier-grid">
+        
+        <div class="atelier-image-card">
+          <img src="untld_store_hq.jpg" alt="UNTLD Physical Atelier Flagship Bandra West Mumbai" loading="lazy">
+        </div>
+
+        <div class="atelier-content">
+          <div class="atelier-sub">Physical Space // Atelier Archive</div>
+          <h2 class="atelier-title">The Bandra West Vault</h2>
+          <p class="atelier-body">
+            Designed with brutalist micro-cement, industrial blackened steel beams, and custom humidity-controlled selvedge storage. Clients are invited to experience loomstate fabric weights, bespoke hem alterations on vintage Union Special 43200G chainstitch machines, and private archive appointments.
+          </p>
+          
+          <div class="atelier-specs-list">
+            <div class="spec-item">
+              <span class="spec-label">Coordinates</span>
+              <span class="spec-val">19.0596° N, 72.8295° E</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Location</span>
+              <span class="spec-val">Pali Hill, Bandra West, Mumbai</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Hours</span>
+              <span class="spec-val">Tue — Sun: 13:00 — 21:00 IST</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Alterations</span>
+              <span class="spec-val">Complimentary In-House Chainstitch</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       5. WORDMARK FOOTER (TAILORED FOR UNTLD)
+       ========================================================================== -->
+  <footer class="wordmark-footer">
+    <div class="wordmark-footer-inner">
+      <div class="footer-brand-side">
+        <span class="footer-wordmark-title">UNTLD</span>
+        <p class="footer-wordmark-desc">
+          Raw selvedge denim and architectural boxy silhouettes engineered for modern urban life. Operating out of Bandra West, Mumbai.
+        </p>
+        <p class="footer-status-line">
+          <span class="footer-status-dot" aria-hidden="true"></span>
+          Atelier open // Pali Hill, Bandra West
+        </p>
+      </div>
+
+      <!-- Desktop 3-column navigation -->
+      <nav aria-label="Footer" class="footer-nav-desktop">
+        <div>
+          <p class="footer-nav-col-title">Collections</p>
+          <ul class="footer-nav-links-list">
+            <li><a href="#vault" class="footer-nav-link">The Denim Vault</a></li>
+            <li><a href="#vault" class="footer-nav-link">Fall 2026 Core</a></li>
+            <li><a href="#vault" class="footer-nav-link">Raw Selvedge Archive</a></li>
+            <li><a href="#vault" class="footer-nav-link">Double Knee Series</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-nav-col-title">Flagship Atelier</p>
+          <ul class="footer-nav-links-list">
+            <li><a href="#atelier" class="footer-nav-link">Bandra West Space</a></li>
+            <li><a href="#atelier" class="footer-nav-link">Archive Appointments</a></li>
+            <li><a href="#atelier" class="footer-nav-link">Union Special Alterations</a></li>
+            <li><a href="#atelier" class="footer-nav-link">Stockists & Stores</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-nav-col-title">Client Care</p>
+          <ul class="footer-nav-links-list">
+            <li><a href="#vault" class="footer-nav-link">Complimentary Shipping</a></li>
+            <li><a href="#vault" class="footer-nav-link">Sizing & Fit Matrix</a></li>
+            <li><a href="#vault" class="footer-nav-link">Terms & Conditions</a></li>
+            <li><a href="#vault" class="footer-nav-link">Privacy Protocol</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Mobile folding accordions -->
+      <nav aria-label="Footer Mobile" class="footer-nav-mobile">
+        <details class="footer-mobile-details">
+          <summary class="footer-mobile-summary">
+            <span>Collections</span>
+            <span class="footer-mobile-plus">+</span>
+          </summary>
+          <ul class="footer-mobile-list">
+            <li><a href="#vault" class="footer-mobile-link">The Denim Vault</a></li>
+            <li><a href="#vault" class="footer-mobile-link">Fall 2026 Core</a></li>
+            <li><a href="#vault" class="footer-mobile-link">Raw Selvedge Archive</a></li>
+            <li><a href="#vault" class="footer-mobile-link">Double Knee Series</a></li>
+          </ul>
+        </details>
+        <details class="footer-mobile-details">
+          <summary class="footer-mobile-summary">
+            <span>Flagship Atelier</span>
+            <span class="footer-mobile-plus">+</span>
+          </summary>
+          <ul class="footer-mobile-list">
+            <li><a href="#atelier" class="footer-mobile-link">Bandra West Space</a></li>
+            <li><a href="#atelier" class="footer-mobile-link">Archive Appointments</a></li>
+            <li><a href="#atelier" class="footer-mobile-link">Union Special Alterations</a></li>
+            <li><a href="#atelier" class="footer-mobile-link">Stockists & Stores</a></li>
+          </ul>
+        </details>
+        <details class="footer-mobile-details">
+          <summary class="footer-mobile-summary">
+            <span>Client Care</span>
+            <span class="footer-mobile-plus">+</span>
+          </summary>
+          <ul class="footer-mobile-list">
+            <li><a href="#vault" class="footer-mobile-link">Complimentary Shipping</a></li>
+            <li><a href="#vault" class="footer-mobile-link">Sizing & Fit Matrix</a></li>
+            <li><a href="#vault" class="footer-mobile-link">Terms & Conditions</a></li>
+            <li><a href="#vault" class="footer-mobile-link">Privacy Protocol</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+
+    <!-- Bottom metadata line -->
+    <div class="wordmark-footer-bottom">
+      <p class="footer-copy">© 2026 UNTLD MUMBAI</p>
+      <a href="mailto:vault@untld.in">vault@untld.in</a>
+      <a href="#atelier" class="footer-credit-link">19.0596° N, 72.8295° E</a>
+    </div>
+
+    <!-- Giant UNTLD wordmark fading into background -->
+    <p aria-hidden="true" class="footer-giant-watermark">
+      UNTLD
+    </p>
+  </footer>
+
+  <!-- ==========================================================================
+       6. SLIDE-OVER BAG / CART DRAWER
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer(false)"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag Drawer">
+    <div class="drawer-header">
+      <div class="drawer-title">Shopping Bag (<span id="cartDrawerCount">0</span>)</div>
+      <button class="drawer-close-btn" onclick="toggleCartDrawer(false)" aria-label="Close Bag">✕</button>
+    </div>
+
+    <div class="drawer-body" id="cartItemsList">
+      <div class="cart-empty-message">Your shopping bag is currently empty.</div>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="drawer-subtotal-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotalVal">₹0</span>
+      </div>
+      <p style="font-size: 12px; color: var(--token-text-secondary); line-height: 1.4;">
+        Complimentary express courier shipping across Mumbai & India. International duty-free customs clearance applied automatically.
+      </p>
+      <button class="checkout-btn" onclick="simulateCheckout()">Proceed To Checkout</button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       7. QUICK VIEW / SIZING MATRIX MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="productModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-window">
+      <button class="modal-close-btn" onclick="closeProductModal()">✕</button>
+      
+      <div class="modal-grid">
+        <div class="modal-gallery-img" onclick="openImageLightbox()" title="Click to view full image">
+          <img id="modalImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="UNTLD Garment Detail">
+          <span class="modal-img-zoom-hint">⤢ Full View</span>
+        </div>
+
+        <div class="modal-content-details">
+          <div class="card-badge" id="modalBadge">Core Drop</div>
+          <h2 class="modal-title" id="modalTitle">Vintage Bootcut Denim</h2>
+          <div class="modal-price-line" id="modalPrice">RS. 1,199</div>
+          
+          <p class="modal-desc-line" id="modalDesc">
+            14.5oz custom slub denim • Relaxed bootcut flare
+          </p>
+
+          <div>
+            <span class="modal-sub-label">Size</span>
+            <div class="modal-size-picker">
+              <button type="button" class="size-pill" onclick="selectModalSize(this, '28')">28</button>
+              <button type="button" class="size-pill" onclick="selectModalSize(this, '30')">30</button>
+              <button type="button" class="size-pill selected" onclick="selectModalSize(this, '32')">32</button>
+              <button type="button" class="size-pill" onclick="selectModalSize(this, '34')">34</button>
+              <button type="button" class="size-pill" onclick="selectModalSize(this, '36')">36</button>
+            </div>
+          </div>
+
+          <!-- Minimalist Measurements with CM / IN Toggle -->
+          <div>
+            <div class="matrix-header-row">
+              <span class="modal-sub-label">Measurements</span>
+              <div class="unit-toggle-group">
+                <button type="button" class="unit-toggle-btn active" id="btnUnitCm" onclick="setMeasurementUnit('cm')">CM</button>
+                <span class="unit-divider">/</span>
+                <button type="button" class="unit-toggle-btn" id="btnUnitIn" onclick="setMeasurementUnit('in')">IN</button>
+              </div>
+            </div>
+            <table class="sizing-matrix-table">
+              <thead>
+                <tr>
+                  <th>Size</th>
+                  <th>Waist</th>
+                  <th>Inseam</th>
+                  <th>Thigh</th>
+                  <th>Hem</th>
+                </tr>
+              </thead>
+              <tbody id="sizingTableBody">
+                <!-- Dynamically populated with clean pure numbers -->
+              </tbody>
+            </table>
+          </div>
+
+          <button class="checkout-btn" style="margin-top: 8px;" onclick="addModalItemToBag()">Add To Bag</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Image Lightbox -->
+  <div class="image-lightbox-overlay" id="imageLightbox" onclick="closeImageLightbox()">
+    <button class="lightbox-close-btn" onclick="closeImageLightbox()" aria-label="Close Fullscreen View">✕</button>
+    <img id="lightboxImg" src="" alt="Full UNTLD Garment View">
+  </div>
+
+  <!-- Haptic Toast Feedback -->
+  <div class="haptic-toast" id="hapticToast">
+    <span class="toast-check">✓</span>
+    <span id="toastMessage">Item added to your shopping bag</span>
+  </div>
+
+  <!-- Lenis Smooth Scroll Library (Local with CDN fallback) -->
+  <script src="lenis.min.js"></script>
+  <script>
+    if (typeof Lenis === 'undefined') {
+      document.write('<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"><\/script>');
+    }
+  </script>
+
+  <!-- ==========================================================================
+       8. CLIENT INTERACTIVITY SCRIPT (CURRENCY, CART, MODALS, LENIS INERTIA)
+       ========================================================================== -->
+  <script>
+    // Initialize Lenis Smooth Scroll - Buttery luxury momentum (Desktop & Mobile Touch)
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      syncTouch: true,
+      syncTouchLerp: 0.08,
+      touchInertiaMultiplier: 25,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+      autoRaf: true
+    });
+    window.lenis = lenis;
+
+    function raf(time) {
+      if (window.lenis && !window.lenis.options.autoRaf) {
+        window.lenis.raf(time);
+      }
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Smooth Anchor Scroll integration with header offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -80 });
+          }
+        }
+      });
+    });
+
+    // State
+    let currentCurrency = 'INR';
+    let bag = [];
+    let selectedModalSize = '32';
+    let activeModalProductId = null;
+
+    // High-performance header visibility observer (zero layout reflows on scroll)
+    const siteHeader = document.getElementById('mainHeader');
+    const heroEl = document.getElementById('hero');
+
+    if (heroEl && 'IntersectionObserver' in window) {
+      const headerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            siteHeader.classList.remove('scrolled');
+          } else {
+            siteHeader.classList.add('scrolled');
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '-80px 0px 0px 0px',
+        threshold: 0
+      });
+      headerObserver.observe(heroEl);
+    }
+
+    // Database of Garments (Optimized CDN Assets)
+    const productsDB = {
+      p1: {
+        id: 'p1',
+        name: 'Vintage Bootcut Denim (Sun-faded Blue)',
+        inr: 1199,
+        inrOrig: 1999,
+        usd: 15,
+        usdOrig: 24,
+        badge: 'Sale',
+        desc: '14.5oz custom slub denim • Sun-faded wash • Subtle boot flare',
+        img: 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDOCTOBER20252.0-355.jpg?v=1762617260&width=800'
+      },
+      p2: {
+        id: 'p2',
+        name: 'Vintage Bootcut Denim (Deep Blue)',
+        inr: 1199,
+        usd: 15,
+        badge: 'Core Drop',
+        desc: '15.5oz heavyweight weave • Deep indigo rinse • Relaxed bootcut stack',
+        img: 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDFEB2026-130.jpg?v=1771841238&width=800'
+      },
+      p3: {
+        id: 'p3',
+        name: 'Vintage Bootcut Denim (Black Rinse)',
+        inr: 1199,
+        inrOrig: 1899,
+        usd: 15,
+        usdOrig: 22,
+        badge: 'Limited',
+        desc: '15oz sulfur-dyed rigid denim • Black rinse • Tailored inseam',
+        img: 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2025_5x4_HQ_-13.jpg?v=1737899144&width=800'
+      },
+      p4: {
+        id: 'p4',
+        name: 'Vintage Bootcut Denim (Washed Grey)',
+        inr: 1199,
+        usd: 15,
+        badge: 'Permanent',
+        desc: '15oz mineral-washed charcoal denim • Five-pocket bootcut cut',
+        img: 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMARCH2026-142.jpg?v=1774380255&width=800'
+      },
+      p5: {
+        id: 'p5',
+        name: 'Vintage Bootcut Denim (Coastal Blue)',
+        inr: 1199,
+        inrOrig: 1799,
+        usd: 15,
+        usdOrig: 21,
+        badge: 'Sale',
+        desc: '14.5oz bleached coastal denim • Artisanal fading • Extended hem',
+        img: 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMAY2026-57.jpg?v=1780597144&width=800'
+      },
+      p6: {
+        id: 'p6',
+        name: 'Vintage Bootcut Denim (Midnight Blue)',
+        inr: 1499,
+        usd: 18,
+        badge: 'Vault Spec',
+        desc: '16oz midnight blue heavyweight denim • Chainstitch bootcut hem',
+        img: 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2026-76.jpg?v=1769587335&width=800'
+      }
+    };
+
+    // Currency Switcher Logic (if invoked programmatically)
+    function setCurrency(curr) {
+      currentCurrency = curr;
+      const bInr = document.getElementById('btnINR');
+      const bUsd = document.getElementById('btnUSD');
+      if (bInr) bInr.classList.toggle('active', curr === 'INR');
+      if (bUsd) bUsd.classList.toggle('active', curr === 'USD');
+
+      // Update all product cards
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const inr = card.getAttribute('data-inr');
+        const inrOrig = card.getAttribute('data-inr-orig');
+        const usd = card.getAttribute('data-usd');
+        const usdOrig = card.getAttribute('data-usd-orig');
+
+        const activeElem = card.querySelector('[data-price-active]');
+        const origElem = card.querySelector('[data-price-orig]');
+
+        if (curr === 'INR') {
+          if (activeElem) activeElem.textContent = 'RS. ' + parseInt(inr).toLocaleString('en-IN');
+          if (origElem && inrOrig) {
+            origElem.innerHTML = 'RS. ' + parseInt(inrOrig).toLocaleString('en-IN') + '<span class="price-strike-line"></span>';
+          }
+        } else {
+          if (activeElem) activeElem.textContent = 'USD $' + usd;
+          if (origElem && usdOrig) {
+            origElem.innerHTML = 'USD $' + usdOrig + '<span class="price-strike-line"></span>';
+          }
+        }
+      });
+
+      renderCart();
+      showToast(`Switched currency to ${curr === 'INR' ? 'Indian Rupee (RS.)' : 'US Dollar ($)'}`);
+    }
+
+    // Category Filter
+    function filterProducts(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.product-card');
+      let count = 0;
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category') || '';
+        if (cat === 'all' || cardCat.includes(cat)) {
+          card.style.display = 'flex';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      document.getElementById('displayedCount').textContent = count;
+    }
+
+    // Cart Drawer Toggle
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartOverlay');
+      if (open) {
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) lenis.stop();
+      } else {
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        if (window.lenis) lenis.start();
+      }
+    }
+
+    // Add To Bag
+    function addToBag(id, name, inr, usd, size, img) {
+      const existing = bag.find(item => item.id === id && item.size === size);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        bag.push({ id, name, inr, usd, size, img, qty: 1 });
+      }
+      renderCart();
+      showToast(`Added ${name} [Size ${size}] to bag`);
+      toggleCartDrawer(true);
+    }
+
+    function updateQty(index, change) {
+      if (!bag[index]) return;
+      bag[index].qty += change;
+      if (bag[index].qty <= 0) {
+        bag.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function removeCartItem(index) {
+      bag.splice(index, 1);
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsList');
+      const badge = document.getElementById('bagCountBadge');
+      const drawerCount = document.getElementById('cartDrawerCount');
+      const subtotalElem = document.getElementById('cartSubtotalVal');
+
+      const totalItems = bag.reduce((sum, item) => sum + item.qty, 0);
+      badge.textContent = totalItems;
+      drawerCount.textContent = totalItems;
+
+      if (bag.length === 0) {
+        container.innerHTML = '<div class="cart-empty-message">Your shopping bag is currently empty.</div>';
+        subtotalElem.textContent = currentCurrency === 'INR' ? 'RS. 0' : 'USD $0';
+        return;
+      }
+
+      let subtotal = 0;
+      let html = '';
+
+      bag.forEach((item, idx) => {
+        const itemPrice = currentCurrency === 'INR' ? item.inr : item.usd;
+        subtotal += itemPrice * item.qty;
+        const formattedPrice = currentCurrency === 'INR' ? 'RS. ' + item.inr.toLocaleString('en-IN') : 'USD $' + item.usd;
+
+        html += `
+          <div class="cart-item-card">
+            <div class="cart-item-thumb">
+              <img src="${item.img}" alt="${item.name}">
+            </div>
+            <div class="cart-item-meta">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-sub">Size ${item.size} • ${formattedPrice}</div>
+              <div class="cart-item-qty-row">
+                <div class="qty-controls">
+                  <button class="qty-btn" onclick="updateQty(${idx}, -1)">−</button>
+                  <span class="qty-val">${item.qty}</span>
+                  <button class="qty-btn" onclick="updateQty(${idx}, 1)">+</button>
+                </div>
+                <button class="cart-item-remove" onclick="removeCartItem(${idx})">Remove</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      subtotalElem.textContent = currentCurrency === 'INR' ? 'RS. ' + subtotal.toLocaleString('en-IN') : 'USD $' + subtotal;
+    }
+
+    function simulateCheckout() {
+      if (bag.length === 0) {
+        showToast('Your bag is empty');
+        return;
+      }
+      showToast('Redirecting to UNTLD Bandra Secure Checkout...');
+      setTimeout(() => {
+        alert('UNTLD Secure Terminal Dispatch Checkout initialized for ' + bag.length + ' items.');
+      }, 400);
+    }
+
+    // Modal Details
+    function openProductModal(id) {
+      const p = productsDB[id];
+      if (!p) return;
+      activeModalProductId = id;
+
+      document.getElementById('modalTitle').textContent = p.name;
+      document.getElementById('modalBadge').textContent = p.badge;
+      document.getElementById('modalDesc').textContent = p.desc;
+      document.getElementById('modalImg').src = p.img;
+
+      if (currentCurrency === 'INR') {
+        document.getElementById('modalPrice').textContent = 'RS. ' + p.inr.toLocaleString('en-IN');
+      } else {
+        document.getElementById('modalPrice').textContent = 'USD $' + p.usd;
+      }
+
+      renderSizingTable();
+
+      const modal = document.getElementById('productModal');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (window.lenis) lenis.stop();
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById('productModal');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      if (window.lenis) lenis.start();
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'productModal') {
+        closeProductModal();
+      }
+    }
+
+    // Sizing Matrix Data (Centimeters & Inches)
+    const sizingMatrix = {
+      cm: [
+        { size: '28', waist: '71', inseam: '81', thigh: '29', hem: '24' },
+        { size: '30', waist: '76', inseam: '81', thigh: '30', hem: '25' },
+        { size: '32', waist: '81', inseam: '82', thigh: '32', hem: '26' },
+        { size: '34', waist: '86', inseam: '82', thigh: '33', hem: '27' },
+        { size: '36', waist: '91', inseam: '84', thigh: '35', hem: '28' }
+      ],
+      in: [
+        { size: '28', waist: '28', inseam: '32', thigh: '11.5', hem: '9.5' },
+        { size: '30', waist: '30', inseam: '32', thigh: '12', hem: '10' },
+        { size: '32', waist: '32', inseam: '32.5', thigh: '12.5', hem: '10.5' },
+        { size: '34', waist: '34', inseam: '32.5', thigh: '13', hem: '11' },
+        { size: '36', waist: '36', inseam: '33', thigh: '13.5', hem: '11' }
+      ]
+    };
+
+    let currentMeasurementUnit = 'cm';
+
+    function renderSizingTable() {
+      const tbody = document.getElementById('sizingTableBody');
+      if (!tbody) return;
+      const rows = sizingMatrix[currentMeasurementUnit] || sizingMatrix.cm;
+      tbody.innerHTML = rows.map(r => `
+        <tr class="${r.size === selectedModalSize ? 'active-size-row' : ''}">
+          <td>${r.size}</td>
+          <td>${r.waist}</td>
+          <td>${r.inseam}</td>
+          <td>${r.thigh}</td>
+          <td>${r.hem}</td>
+        </tr>
+      `).join('');
+    }
+
+    function setMeasurementUnit(unit) {
+      currentMeasurementUnit = unit;
+      const btnCm = document.getElementById('btnUnitCm');
+      const btnIn = document.getElementById('btnUnitIn');
+      if (btnCm) btnCm.classList.toggle('active', unit === 'cm');
+      if (btnIn) btnIn.classList.toggle('active', unit === 'in');
+      renderSizingTable();
+    }
+
+    function selectModalSize(btn, size) {
+      document.querySelectorAll('.size-pill').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedModalSize = size;
+      renderSizingTable();
+    }
+
+    function openImageLightbox() {
+      const modalImg = document.getElementById('modalImg');
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      if (modalImg && lightbox && lightboxImg) {
+        lightboxImg.src = modalImg.src;
+        lightbox.classList.add('open');
+        if (window.lenis) lenis.stop();
+      }
+    }
+
+    function closeImageLightbox() {
+      const lightbox = document.getElementById('imageLightbox');
+      if (lightbox) {
+        lightbox.classList.remove('open');
+        const modal = document.getElementById('productModal');
+        if (!modal || !modal.classList.contains('open')) {
+          if (window.lenis) lenis.start();
+        }
+      }
+    }
+
+    function addModalItemToBag() {
+      if (!activeModalProductId) return;
+      const p = productsDB[activeModalProductId];
+      addToBag(p.id, p.name, p.inr, p.usd, selectedModalSize, p.img);
+      closeProductModal();
+    }
+
+    // Newsletter Subscribe Form
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const email = input.value;
+      input.value = '';
+      showToast(`VIP Dispatch Code transmitted to ${email}`);
+    }
+
+    // Haptic Toast
+    let toastTimer = null;
+    function showToast(msg) {
+      const toast = document.getElementById('hapticToast');
+      document.getElementById('toastMessage').textContent = msg;
+      toast.classList.add('show');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3200);
+    }
+
+    // Mobile nav
+    function toggleMobileNav(forceState) {
+      const overlay = document.getElementById('mobileNavOverlay');
+      const panel = document.getElementById('mobileNavPanel');
+      const shouldOpen = forceState !== undefined ? forceState : !panel.classList.contains('open');
+      if (shouldOpen) {
+        overlay.classList.add('open');
+        panel.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (window.lenis) lenis.stop();
+      } else {
+        overlay.classList.remove('open');
+        panel.classList.remove('open');
+        document.body.style.overflow = '';
+        if (window.lenis) lenis.start();
+      }
+    }
+
+    // Keyboard ESC listener
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeImageLightbox();
+        closeProductModal();
+        toggleCartDrawer(false);
+        toggleMobileNav(false);
+      }
+    });
+  </script>
+</body>
+</html>

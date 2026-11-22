@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UNTLD — 50 Minimal Typography Fonts Specimen Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.fontshare.com">
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Michroma&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@600;700;800&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FONTSHARE CDN -->
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800,900&f[]=general-sans@400,500,600,700&f[]=satoshi@400,500,700,900&f[]=clash-display@500,600,700&f[]=panchang@600,700,800&f[]=cabinet-grotesk@500,700,800,900&display=swap" rel="stylesheet">
+
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 14mm 16mm 14mm 16mm;
+      @bottom-right {
+        content: counter(page);
+        font-family: 'DM Mono', monospace;
+        font-size: 9pt;
+        color: #888888;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: #FFFFFF;
+      color: #121212;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.45;
+      font-size: 13px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto 36px auto;
+      padding: 24px;
+      background: #FFFFFF;
+    }
+
+    @media print {
+      body {
+        background: #FFFFFF;
+      }
+      .page {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+      .no-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+
+    /* COVER PAGE */
+    .cover-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #121212;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #707070;
+    }
+
+    .cover-brand-pill {
+      background: #121212;
+      color: #FFFFFF;
+      padding: 4px 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    .cover-hero {
+      padding: 60px 0 40px 0;
+    }
+
+    .cover-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8C887B;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .cover-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #121212;
+      margin-bottom: 20px;
+    }
+
+    .cover-subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      color: #555555;
+      line-height: 1.4;
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
+
+    .cover-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 24px 0;
+      border-top: 1px solid #E5E5E5;
+      border-bottom: 1px solid #E5E5E5;
+      margin-bottom: 40px;
+    }
+
+    .meta-item h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #888888;
+      margin-bottom: 4px;
+    }
+
+    .meta-item p {
+      font-size: 14px;
+      font-weight: 600;
+      color: #121212;
+    }
+
+    .cover-toc {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .toc-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: #F8F8F8;
+      border-left: 3px solid #121212;
+    }
+
+    .toc-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #121212;
+      margin-bottom: 2px;
+    }
+
+    .toc-card p {
+      font-size: 12px;
+      color: #707070;
+    }
+
+    .toc-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: #121212;
+    }
+
+    /* SECTION HEADER */
+    .section-banner {
+      padding: 24px 0 16px 0;
+      border-bottom: 2px solid #121212;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .section-banner h2 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #121212;
+    }
+
+    .section-banner span {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #888888;
+      letter-spacing: 0.1em;
+    }
+
+    /* SPECIMEN CARD */
+    .specimen-card {
+      padding: 20px 22px;
+      background: #FFFFFF;
+      border: 1px solid #E5E5E5;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    .card-id-block {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .font-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: #888888;
+    }
+
+    .font-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #121212;
+    }
+
+    .font-foundry {
+      font-size: 11px;
+      color: #888888;
+      font-weight: 400;
+    }
+
+    .license-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .badge-free {
+      background: #EBF8F2;
+      color: #0E7044;
+      border: 1px solid #C4EED9;
+    }
+
+    .badge-commercial {
+      background: #F3F4F6;
+      color: #4B5563;
+      border: 1px solid #E5E7EB;
+    }
+
+    /* TYPOGRAPHIC SPECIMENS INSIDE CARD */
+    .specimen-display {
+      font-size: 32px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #121212;
+      margin-bottom: 10px;
+      overflow-wrap: break-word;
+    }
+
+    .specimen-sentence {
+      font-size: 15px;
+      line-height: 1.35;
+      color: #262626;
+      margin-bottom: 10px;
+    }
+
+    .specimen-charset {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: #777777;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      padding: 8px 10px;
+      background: #F9F9F9;
+      border-radius: 4px;
+    }
+
+    /* CARD FOOTER META */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px dashed #E5E5E5;
+      font-size: 11px;
+      color: #666666;
+    }
+
+    .footer-left {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-tag {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tag-label {
+      font-family: 'DM Mono', monospace;
+      color: #999999;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+
+    .tag-val {
+      font-weight: 600;
+      color: #121212;
+    }
+
+    /* END SUMMARY TABLE */
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-top: 16px;
+    }
+
+    .summary-table th {
+      background: #121212;
+      color: #FFFFFF;
+      font-family: 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 8px 10px;
+      text-align: left;
+      font-size: 10px;
+    }
+
+    .summary-table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #EEEEEE;
+    }
+
+    .summary-table tr:nth-child(even) {
+      background: #FAFAFA;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== COVER PAGE ==================== -->
+  <div class="page">
+    <div class="cover-header">
+      <span class="cover-brand-pill">UNTLD ATELIER</span>
+      <span>MUMBAI FLAGSHIP • ARCHIVE VOL. 2026</span>
+      <span>EDITION: SPECIMEN 01</span>
+    </div>
+
+    <div class="cover-hero">
+      <span class="cover-tag">PINTEREST MINIMAL TYPOGRAPHY COMPILATION</span>
+      <h1 class="cover-title">50 Minimal Typography Fonts</h1>
+      <p class="cover-subtitle">
+        Curated specimen catalogue designed for UNTLD's luxury Mumbai streetwear aesthetic, high-contrast raw denim lookbooks, and clean Swiss architectural storefronts.
+      </p>
+
+      <div class="cover-meta-grid">
+        <div class="meta-item">
+          <h4>TOTAL TYPEFACES</h4>
+          <p>50 Curated Fonts</p>
+        </div>
+        <div class="meta-item">
+          <h4>OPEN SOURCE & FREE</h4>
+          <p>27 Google / Fontshare Faces</p>
+        </div>
+        <div class="meta-item">
+          <h4>COMMERCIAL LUXURY</h4>
+          <p>23 Boutique Foundry Faces</p>
+        </div>
+      </div>
+
+      <div class="cover-toc">
+        <div class="toc-card">
+          <div>
+            <h3>Tier 1: Swiss Neo-Grotesque & Clean Geometric Sans</h3>
+            <p>Clean base typography for navigation, product cards, pricing & editorial body</p>
+          </div>
+          <span class="toc-count">FONTS 01 — 20</span>
+        </div>
+
+        <div class="toc-card">
+          <div>
+            <h3>Tier 2: Extended Geometric & Brutalist Display</h3>
+            <p>Monumental extended titling, hero banners, capsule IDs & marquee ribbons</p>
+          </div>
+          <span class="toc-count">FONTS 21 — 35</span>
+        </div>
+
+        <div class="toc-card">
+          <div>
+            <h3>Tier 3: High-Fashion Editorial Serifs & Technical Monospace</h3>
+            <p>Lookbook pull quotes, raw denim fabric specs (GSM), coordinates & care tags</p>
+          </div>
+          <span class="toc-count">FONTS 36 — 50</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="page">
+    <div class="section-banner">
+      <div>
+        <span>CATEGORY 01</span>
+        <h2>Swiss Neo-Grotesque & Clean Geometric Sans</h2>
+      </div>
+      <span>FONTS 01 — 20</span>
+    </div>
+
+    <!-- FONT 01: Neue Haas Grotesk -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[01]</span>
+          <span class="font-name">Neue Haas Grotesk</span>
+          <span class="font-foundry">Linotype / Christian Schwartz</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Adobe Fonts)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Neue Haas Grotesk Display Pro', 'Switzer', -apple-system, sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Neue Haas Grotesk Display Pro', 'Switzer', -apple-system, sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Neue Haas Grotesk Display Pro', 'Switzer', -apple-system, sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Hero Headline & Capsule Drop Titles</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Space Mono (400) + Switzer (400)</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Swiss Neo-Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 02: PP Neue Montreal -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[02]</span>
+          <span class="font-name">PP Neue Montreal</span>
+          <span class="font-foundry">Pangram Pangram Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Free demo)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'PP Neue Montreal', 'General Sans', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'PP Neue Montreal', 'General Sans', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'PP Neue Montreal', 'General Sans', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Top Navigation Bar & Floating Pills</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">PP Editorial New (Italic) + General Sans</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Contemporary Swiss Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 03: Söhne -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[03]</span>
+          <span class="font-name">Söhne</span>
+          <span class="font-foundry">Klim Type Foundry (Kris Sowersby)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Sohne', 'Switzer', -apple-system, sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Sohne', 'Switzer', -apple-system, sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Sohne', 'Switzer', -apple-system, sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Product Card Titles & PDP Pricing</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Söhne Mono / JetBrains Mono (400)</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Rationalist Akzidenz-Grotesk</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 04: General Sans -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[04]</span>
+          <span class="font-name">General Sans</span>
+          <span class="font-foundry">Fontshare / Indian Type Foundry</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Commercial (Fontshare)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'General Sans', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'General Sans', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'General Sans', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Primary UI Body, Accordions & Size Guide Specs</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Unbounded (900) + Space Mono (400)</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Modernist Neutral Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 05: Forma DJR -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[05]</span>
+          <span class="font-name">Forma DJR</span>
+          <span class="font-foundry">DJR (David Jonathan Ross)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Adobe Fonts)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Forma DJR Display', 'Satoshi', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Forma DJR Display', 'Satoshi', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Forma DJR Display', 'Satoshi', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Store Locator & Flagship Boutique Addresses</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Druk Wide / Monument Extended</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Soft Neo-Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 06: Satoshi -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[06]</span>
+          <span class="font-name">Satoshi</span>
+          <span class="font-foundry">Fontshare / Indian Type Foundry</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Commercial (Fontshare)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Satoshi', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Satoshi', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Satoshi', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Primary CTA Buttons, Bag Bar & Badges</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Inter Tight + Anton</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Geometric Neo-Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 07: Switzer -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[07]</span>
+          <span class="font-name">Switzer</span>
+          <span class="font-foundry">Fontshare / Indian Type Foundry</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Commercial (Fontshare)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Switzer', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Switzer', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Switzer', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">UNTLD Global System Base Font</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Switzer Text + DM Mono (400)</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Contemporary Neo-Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 08: Inter Tight -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[08]</span>
+          <span class="font-name">Inter Tight</span>
+          <span class="font-foundry">Google Fonts (Rasmus Andersson)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Inter Tight', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Inter Tight', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Inter Tight', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">High-Density Card Titles & Filter Bars</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Inter Regular (400) + Unbounded</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">High-Density Screen Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 09: Cabinet Grotesk -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[09]</span>
+          <span class="font-name">Cabinet Grotesk</span>
+          <span class="font-foundry">Fontshare / Indian Type Foundry</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Commercial (Fontshare)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Cabinet Grotesk', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Cabinet Grotesk', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Cabinet Grotesk', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Capsule Badges, Drop Teasers & Labels</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Instrument Sans (400) + Space Mono</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Wide Quirky Brutalist Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 10: Space Grotesk -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[10]</span>
+          <span class="font-name">Space Grotesk</span>
+          <span class="font-foundry">Google Fonts (Florian Karsten)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Space Grotesk', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Garment Detail Accents & Drop Highlights</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Neue Haas Grotesk + Space Mono</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Proportional Tech Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 11: Suisse Int'l -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[11]</span>
+          <span class="font-name">Suisse Int'l</span>
+          <span class="font-foundry">Swiss Typefaces</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Suisse Int\'l', 'Switzer', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Suisse Int\'l', 'Switzer', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Suisse Int\'l', 'Switzer', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Global Editorial Masthead & Lookbook Spread</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Suisse Int'l Mono / Space Mono</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Ultra-Pure Swiss Rationalist</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 12: Neue Haas Unica -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[12]</span>
+          <span class="font-name">Neue Haas Unica</span>
+          <span class="font-foundry">Monotype / Team '77</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Neue Haas Unica', 'Plus Jakarta Sans', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Neue Haas Unica', 'Plus Jakarta Sans', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Neue Haas Unica', 'Plus Jakarta Sans', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">'About UNTLD' Brand Manifesto Prose</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Integral CF / Unbounded (900)</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Hybrid Grotesque-Neo</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 13: FK Grotesk -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[13]</span>
+          <span class="font-name">FK Grotesk</span>
+          <span class="font-foundry">Florian Karsten</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'FK Grotesk', 'Space Grotesk', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'FK Grotesk', 'Space Grotesk', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'FK Grotesk', 'Space Grotesk', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Product Spec Drawer & Fabric Breakdown</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Neue Haas Grotesk + DM Mono</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Tactile Modernist Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 14: ABC Whyte -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[14]</span>
+          <span class="font-name">ABC Whyte</span>
+          <span class="font-foundry">Dinamo (Johannes Breyer & Fabian Harb)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'ABC Whyte', 'Plus Jakarta Sans', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'ABC Whyte', 'Plus Jakarta Sans', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'ABC Whyte', 'Plus Jakarta Sans', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Micro-Copy, SKU Tags & Breadcrumbs</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">ABC Whyte Inktrap / Clash Display</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Smooth Swiss Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 15: Basis Grotesk -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[15]</span>
+          <span class="font-name">Basis Grotesk</span>
+          <span class="font-foundry">Colophon Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Basis Grotesk', 'Switzer', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Basis Grotesk', 'Switzer', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Basis Grotesk', 'Switzer', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">SKU Badges, Product Codes & Card Prices</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Instrument Serif (Italic) + Inter</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Raw Utilitarian Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 16: Plus Jakarta Sans -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[16]</span>
+          <span class="font-name">Plus Jakarta Sans</span>
+          <span class="font-foundry">Google Fonts (Tokotype)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Plus Jakarta Sans', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Mobile Navigation Drawer & Checkout UI</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Anton + JetBrains Mono</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Geometric Modernist Sans</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 17: Instrument Sans -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[17]</span>
+          <span class="font-name">Instrument Sans</span>
+          <span class="font-foundry">Google Fonts (Instrument)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Instrument Sans', sans-serif; font-weight: 600; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Instrument Sans', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Instrument Sans', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Size Filter Pills (XS, S, M, L, XL)</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Instrument Serif (Italic)</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Refined Screen Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 18: Geist Sans -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[18]</span>
+          <span class="font-name">Geist Sans</span>
+          <span class="font-foundry">Vercel & Basement Studio</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Geist)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Geist Sans', -apple-system, sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Geist Sans', -apple-system, sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Geist Sans', -apple-system, sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Garment Technical Spec Sheets & GSM Tags</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Geist Mono (400) + Unbounded</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Ultra-Precise Developer Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 19: PP Telegraf -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[19]</span>
+          <span class="font-name">PP Telegraf</span>
+          <span class="font-foundry">Pangram Pangram Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Free demo)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'PP Telegraf', 'Space Grotesk', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'PP Telegraf', 'Space Grotesk', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'PP Telegraf', 'Space Grotesk', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Capsule Teasers & Lookbook Slide Counters</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">General Sans + Space Mono</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Clipped Angle Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 20: Univers Next -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[20]</span>
+          <span class="font-name">Univers Next</span>
+          <span class="font-foundry">Linotype (Adrian Frutiger)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Univers Next', 'Switzer', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Univers Next', 'Switzer', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Univers Next', 'Switzer', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Drop Category Tabs ('VAULT', 'CORE')</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Syne (800) + DM Mono</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Rationalist Swiss System</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+    <div class="section-banner">
+      <div>
+        <span>CATEGORY 02</span>
+        <h2>Extended Geometric & Brutalist Display</h2>
+      </div>
+      <span>FONTS 21 — 35</span>
+    </div>
+
+    <!-- FONT 21: Druk Wide -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[21]</span>
+          <span class="font-name">Druk Wide</span>
+          <span class="font-foundry">Commercial Type (Berton Hasebe)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Druk Wide', 'Unbounded', sans-serif; font-weight: 900; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Druk Wide', 'Unbounded', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Druk Wide', 'Unbounded', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Hero Drop Banners & Giant Billboards</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Neue Haas Grotesk + Space Mono</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Ultra-Wide Heavyweight Display</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 22: Monument Extended -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[22]</span>
+          <span class="font-name">Monument Extended</span>
+          <span class="font-foundry">Pangram Pangram (Mat Desjardins)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Free demo)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Monument Extended', 'Panchang', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Monument Extended', 'Panchang', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Monument Extended', 'Panchang', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Sticky Top Navigation Brand Wordmark</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Switzer (500) + Geist Mono</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Extended Monumental Sans</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 23: PP Formula -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[23]</span>
+          <span class="font-name">PP Formula</span>
+          <span class="font-foundry">Pangram Pangram Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Free demo)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'PP Formula', 'Clash Display', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'PP Formula', 'Clash Display', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'PP Formula', 'Clash Display', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Watermark Backgrounds & Sub-Collection Badges</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Satoshi (400) + Söhne Buch</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Modular Variable Grotesque</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 24: Unbounded -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[24]</span>
+          <span class="font-name">Unbounded</span>
+          <span class="font-foundry">Google Fonts (NaN Foundry)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Unbounded', sans-serif; font-weight: 900; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Unbounded', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Unbounded', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Current Approved UNTLD Hero Title Face</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">General Sans (400) + Inter</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Ultra-Black Geometric Extended</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 25: Clash Display -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[25]</span>
+          <span class="font-name">Clash Display</span>
+          <span class="font-foundry">Fontshare / Indian Type Foundry</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Commercial (Fontshare)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Clash Display', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Clash Display', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Clash Display', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Lookbook Video Statement Titles</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Cabinet Grotesk + Satoshi</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Brutalist Geometric Display</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 26: Integral CF -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[26]</span>
+          <span class="font-name">Integral CF</span>
+          <span class="font-foundry">Connary Fagen</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Integral CF', 'Panchang', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Integral CF', 'Panchang', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Integral CF', 'Panchang', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Full-Screen Drop Reveal & Master Callouts</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Space Grotesk + Inter</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Extra-Bold Monumental Titling</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 27: Akira Expanded -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[27]</span>
+          <span class="font-name">Akira Expanded</span>
+          <span class="font-foundry">Twicolabs Font Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Free Demo / Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Akira Expanded', 'Panchang', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Akira Expanded', 'Panchang', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Akira Expanded', 'Panchang', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Archival Capsule Release IDs ('LOT 001')</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Neue Haas Grotesk + Switzer</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Extended Brutalist Display</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 28: Thunder -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[28]</span>
+          <span class="font-name">Thunder</span>
+          <span class="font-foundry">Rajesh Rajput</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Thunder', 'Anton', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Thunder', 'Anton', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Thunder', 'Anton', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Vertical Lookbook Tickers & Side Marquees</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Unbounded + Panchang</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Ultra-Condensed Brutalist Display</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 29: PP Pangram Sans -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[29]</span>
+          <span class="font-name">PP Pangram Sans</span>
+          <span class="font-foundry">Pangram Pangram Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Free demo)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'PP Pangram Sans', 'Switzer', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'PP Pangram Sans', 'Switzer', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'PP Pangram Sans', 'Switzer', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Main Brand Lockup & Cart Summary Header</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">PP Neue Montreal + Inter</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Extended Geometric Sans</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 30: Syne (800 Extra Bold) -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[30]</span>
+          <span class="font-name">Syne (800 Extra Bold)</span>
+          <span class="font-foundry">Google Fonts (Bonjour Monde)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Syne', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Syne', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Syne', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Seasonal Campaign Narrative Headlines</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Syne Regular (400) + Space Grotesk</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Sculptural Avant-Garde Sans</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 31: Bebas Neue Pro -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[31]</span>
+          <span class="font-name">Bebas Neue Pro</span>
+          <span class="font-foundry">Dharma Type (Ryoichi Tsunekawa)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Std free on Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Bebas Neue', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Bebas Neue', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Bebas Neue', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Fit Matrix ('OVERSIZED SILHOUETTE GUIDE')</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Forma DJR Text + Inter Tight</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Extended & Condensed System</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 32: Panchang -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[32]</span>
+          <span class="font-name">Panchang</span>
+          <span class="font-foundry">Fontshare / Indian Type Foundry</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Commercial (Fontshare)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Panchang', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Panchang', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Panchang', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Extended Slogans & Category Banners</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">General Sans (400) + Satoshi</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Ultra-Wide Extended Brutalist</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 33: Right Grotesk -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[33]</span>
+          <span class="font-name">Right Grotesk</span>
+          <span class="font-foundry">Pangram Pangram (Alex Slobzheninov)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Free demo)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Right Grotesk', 'Clash Display', sans-serif; font-weight: 800; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Right Grotesk', 'Clash Display', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Right Grotesk', 'Clash Display', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Limited Drop Release Tags ('SOLD OUT')</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Switzer + Inter</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Inktrap Brutalist Display</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 34: Eurostile Bold Extended -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[34]</span>
+          <span class="font-name">Eurostile Bold Extended</span>
+          <span class="font-foundry">Linotype (Aldo Novarese, 1962)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Adobe Fonts)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Eurostile', 'Michroma', sans-serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Eurostile', 'Michroma', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Eurostile', 'Michroma', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Heavyweight Outerwear Titles & GPS Coordinates</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Neue Haas Grotesk + Inter</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Mid-Century Technical Squircle</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 35: Anton -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[35]</span>
+          <span class="font-name">Anton</span>
+          <span class="font-foundry">Google Fonts (Vernon Adams)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Anton', sans-serif; font-weight: 400; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Anton', sans-serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Anton', sans-serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Marquee Scrolling Ticker Ribbons</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Neue Haas Grotesk + General Sans</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Heavyweight Compressed Display</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+    <div class="section-banner">
+      <div>
+        <span>CATEGORY 03</span>
+        <h2>High-Fashion Editorial Serifs & Technical Monospace</h2>
+      </div>
+      <span>FONTS 36 — 50</span>
+    </div>
+
+    <!-- FONT 36: PP Editorial New -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[36]</span>
+          <span class="font-name">PP Editorial New</span>
+          <span class="font-foundry">Pangram Pangram Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Free demo)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'PP Editorial New', 'Instrument Serif', serif; font-weight: 400; font-style: italic;">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'PP Editorial New', 'Instrument Serif', serif; font-weight: 500; font-style: italic;">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'PP Editorial New', 'Instrument Serif', serif; font-style: italic;">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Lookbook Quotes & Capsule Narratives</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Neue Haas Grotesk + Inter</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">High-Fashion Editorial Serif</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 37: Instrument Serif -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[37]</span>
+          <span class="font-name">Instrument Serif</span>
+          <span class="font-foundry">Google Fonts (Instrument)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic;">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Instrument Serif', serif; font-weight: 500; font-style: italic;">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Instrument Serif', serif; font-style: italic;">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Italic Capsule Subtitles & Photo Captions</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Satoshi + Inter Tight</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Transitional Display Serif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 38: Ogg -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[38]</span>
+          <span class="font-name">Ogg</span>
+          <span class="font-foundry">Sharp Type (Lucas Sharp)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Ogg', 'Cormorant Garamond', serif; font-weight: 600; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Ogg', 'Cormorant Garamond', serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Ogg', 'Cormorant Garamond', serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Isolated One-Word Accents & VIP Packaging</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">General Sans + Söhne</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Calligraphic Roman Serif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 39: Cormorant Garamond -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[39]</span>
+          <span class="font-name">Cormorant Garamond</span>
+          <span class="font-foundry">Google Fonts (Christian Thalmann)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Cormorant Garamond', serif; font-weight: 600; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Cormorant Garamond', serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Cormorant Garamond', serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Textile Origin Storytelling & Heritage Specs</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Switzer + Neue Haas Grotesk</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">High-Contrast Neoclassical Serif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 40: Canela -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[40]</span>
+          <span class="font-name">Canela</span>
+          <span class="font-foundry">Commercial Type (Miguel Reyes)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Canela', 'Cinzel', serif; font-weight: 600; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Canela', 'Cinzel', serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Canela', 'Cinzel', serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Product Taxonomy Headers & High-Fashion Categories</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Forma DJR + Inter Tight</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Flared Stone-Carved Display</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 41: Reckless Neue -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[41]</span>
+          <span class="font-name">Reckless Neue</span>
+          <span class="font-foundry">Displaay Type Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Reckless Neue', 'Instrument Serif', serif; font-weight: 500; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Reckless Neue', 'Instrument Serif', serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Reckless Neue', 'Instrument Serif', serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Capsule Manifesto Copy & Numbering</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">PP Neue Montreal + Space Grotesk</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Renaissance Brutalist Serif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 42: Playfair Display -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[42]</span>
+          <span class="font-name">Playfair Display</span>
+          <span class="font-foundry">Google Fonts (Claus Eggers Sørensen)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Playfair Display', serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Playfair Display', serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Playfair Display', serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Press Quotes & Private Salon Releases</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Inter + Cabinet Grotesk</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Transitional Editorial Serif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 43: GT Super -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[43]</span>
+          <span class="font-name">GT Super</span>
+          <span class="font-foundry">Grilli Type (Noël Leu)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'GT Super', 'Playfair Display', serif; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'GT Super', 'Playfair Display', serif; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'GT Super', 'Playfair Display', serif; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Video Headline Overlays & Date Stamps</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Unbounded + Söhne</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">1970s High-Drama Serif</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 44: Space Mono -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[44]</span>
+          <span class="font-name">Space Mono</span>
+          <span class="font-foundry">Google Fonts (Colophon Foundry)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Space Mono', monospace; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Space Mono', monospace; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Space Mono', monospace; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Technical Denim Specs ('14.5 OZ SELVEDGE')</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Unbounded + Neue Haas Grotesk</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Retro-Futuristic Monospace</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 45: JetBrains Mono -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[45]</span>
+          <span class="font-name">JetBrains Mono</span>
+          <span class="font-foundry">Google Fonts (JetBrains)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'JetBrains Mono', monospace; font-weight: 600; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'JetBrains Mono', monospace; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'JetBrains Mono', monospace; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Garment Measurement Tables & SKU Matrix</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Inter + PP Neue Montreal</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Engineered Code Monospace</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 46: PP Neue Machina -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[46]</span>
+          <span class="font-name">PP Neue Machina</span>
+          <span class="font-foundry">Pangram Pangram Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial (Free demo)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'PP Neue Machina', 'Space Mono', monospace; font-weight: 700; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'PP Neue Machina', 'Space Mono', monospace; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'PP Neue Machina', 'Space Mono', monospace; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Drop Timers & Hardware Engravings</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Syne + Neue Haas Grotesk</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Mechanical Inktrap Monospace</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 47: GT America Mono -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[47]</span>
+          <span class="font-name">GT America Mono</span>
+          <span class="font-foundry">Grilli Type (Noël Leu)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'GT America Mono', 'DM Mono', monospace; font-weight: 600; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'GT America Mono', 'DM Mono', monospace; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'GT America Mono', 'DM Mono', monospace; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Woven Neck Tags & Care Labels</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">GT America + Söhne</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Swiss-American Gothic Mono</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 48: Apercu Mono -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[48]</span>
+          <span class="font-name">Apercu Mono</span>
+          <span class="font-foundry">Colophon Foundry</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Apercu Mono', 'Space Mono', monospace; font-weight: 500; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Apercu Mono', 'Space Mono', monospace; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Apercu Mono', 'Space Mono', monospace; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Authenticity Cards & Order Seals</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Apercu + General Sans</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Bespoke Cultural Monospace</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="page">
+
+    <!-- FONT 49: DM Mono -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[49]</span>
+          <span class="font-name">DM Mono</span>
+          <span class="font-foundry">Google Fonts (Colophon)</span>
+        </div>
+        <span class="license-badge badge-free">100% Free Open Source (Google)</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'DM Mono', monospace; font-weight: 500; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'DM Mono', monospace; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'DM Mono', monospace; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Fabric Composition Micro-Specs ('100% COTTON')</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Switzer + Inter</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Geometric Modernist Monospace</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FONT 50: Pitch Sans -->
+    <div class="specimen-card no-break">
+      <div class="card-top">
+        <div class="card-id-block">
+          <span class="font-num">[50]</span>
+          <span class="font-name">Pitch Sans</span>
+          <span class="font-foundry">Klim Type Foundry (Kris Sowersby)</span>
+        </div>
+        <span class="license-badge badge-commercial">Commercial</span>
+      </div>
+
+      <div class="specimen-display" style="font-family: 'Pitch Sans', 'Space Mono', monospace; font-weight: 600; ">
+        THE DENIM VAULT®
+      </div>
+
+      <div class="specimen-sentence" style="font-family: 'Pitch Sans', 'Space Mono', monospace; font-weight: 500; ">
+        Raw denim. Uncompromised fit. Built for the streets of Mumbai.
+      </div>
+
+      <div class="specimen-charset" style="font-family: 'Pitch Sans', 'Space Mono', monospace; ">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ • abcdefghijklmnopqrstuvwxyz • 0123456789 • 14.5 OZ
+      </div>
+
+      <div class="card-footer">
+        <div class="footer-left">
+          <div class="footer-tag">
+            <span class="tag-label">Role:</span>
+            <span class="tag-val">Limited Edition Piece Numbering ('01/50')</span>
+          </div>
+          <div class="footer-tag">
+            <span class="tag-label">Pair With:</span>
+            <span class="tag-val">Canela + Neue Haas Grotesk</span>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <span class="tag-label">Type:</span>
+          <span class="tag-val">Typewriter Modernist Sans</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-break"></div>
+
+  <!-- ==================== RECOMMENDATIONS & CDN GUIDE ==================== -->
+  <div class="page">
+    <div class="section-banner">
+      <div>
+        <span>DEPLOYMENT GUIDE</span>
+        <h2>Top 5 Recommended UNTLD Pairing Stacks</h2>
+      </div>
+      <span>100% READY FOR WEB</span>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 8px;">1. The Raw Denim Blueprint (High-Contrast Utility)</h3>
+      <p style="color: #555555; margin-bottom: 8px;">Unbounded 900 (Display Hero) + Switzer 400/600 (Product Grid & Body) + Space Mono 400 (Fabric Specs) + Instrument Serif Italic (Subtitles).</p>
+      
+      <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 8px; margin-top: 18px;">2. Contemporary Mumbai Luxury Streetwear</h3>
+      <p style="color: #555555; margin-bottom: 8px;">PP Neue Montreal 600 / General Sans 600 (Nav & Wordmark) + General Sans 400 (Body) + Instrument Serif Italic (Pull Quotes) + JetBrains Mono 400 (SKU Badges).</p>
+
+      <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 8px; margin-top: 18px;">3. High-Energy Flash Drop (Brutalist Streetwear)</h3>
+      <p style="color: #555555; margin-bottom: 8px;">Anton 400 (Marquee Ribbon) + Panchang 700 (Category Headers) + Satoshi 700 (Pill Buttons) + Space Mono 700 (Countdown Timers).</p>
+
+      <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 8px; margin-top: 18px;">4. Pure Swiss Architectural Minimalist</h3>
+      <p style="color: #555555; margin-bottom: 8px;">Neue Haas Grotesk 700 / Söhne (Headers) + Inter Tight 600 (Secondary Headings) + Switzer 400 (Body) + DM Mono 400 (Tabular Data).</p>
+
+      <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 8px; margin-top: 18px;">5. 100% Free Open-Source Commercial Stack</h3>
+      <p style="color: #555555; margin-bottom: 8px;">Unbounded (Google) + Instrument Serif (Google) + Switzer / General Sans (Fontshare CDN) + Space Mono / JetBrains Mono (Google).</p>
+    </div>
+
+    <div style="background: #F8F8F8; border-left: 3px solid #121212; padding: 16px; border-radius: 4px; margin-top: 24px;">
+      <h4 style="font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #121212; margin-bottom: 6px;">Copy-Paste Quick Webfont CDN Tag:</h4>
+      <p style="font-family: 'DM Mono', monospace; font-size: 10px; color: #555555; word-break: break-all; line-height: 1.5;">
+        &lt;link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400..800&family=JetBrains+Mono:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet"&gt;<br>
+        &lt;link href="https://api.fontshare.com/v2/css?f[]=switzer@400,600,700,800&f[]=general-sans@400,600,700&f[]=satoshi@500,700&f[]=panchang@700,800&display=swap" rel="stylesheet"&gt;
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
