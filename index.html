@@ -1674,24 +1674,75 @@
 
     @media (max-width: 809.98px) {
       :root {
-        --nav-height: 64px;
+        --nav-height: 60px;
       }
 
+      /* Mobile Header: Clean top bar with UNTLD symbol top-left and two lines top-right */
       .sticky-nav-inner {
-        padding: 0 20px;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0 20px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       .header-nav-left {
-        display: none;
+        display: none !important;
       }
 
+      .header-center {
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        margin: 0 !important;
+      }
+
+      .brand-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        font-size: 15px !important;
+        letter-spacing: 0.16em !important;
+      }
+
+      .header-nav-right {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 0 !important;
+      }
+
+      /* Hide search, account, and CART button from mobile header so only the two lines show */
       .header-nav-right .header-search-btn,
-      .header-nav-right a {
-        display: none;
+      .header-nav-right a,
+      .header-nav-right .header-cart-btn {
+        display: none !important;
       }
 
+      /* Two lines hamburger menu icon */
       .mobile-menu-btn {
-        display: flex;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: flex-end !important;
+        gap: 6px !important;
+        width: 36px !important;
+        height: 36px !important;
+        padding: 4px 0 !important;
+        cursor: pointer !important;
+        background: transparent !important;
+      }
+
+      .mobile-menu-btn span {
+        display: block !important;
+        width: 22px !important;
+        height: 1.5px !important;
+        background-color: #FFFFFF !important;
+        transition: background-color 0.25s ease !important;
+      }
+
+      .sticky-header-container.scrolled .mobile-menu-btn span {
+        background-color: var(--token-text-primary) !important;
       }
 
       .hero-section {
@@ -1701,6 +1752,11 @@
 
       .hero-title {
         font-size: clamp(30px, 9.5vw, 54px);
+      }
+
+      /* Remove the R trademark symbol from mobile view */
+      .hero-trademark {
+        display: none !important;
       }
 
       .hero-bottom-left {
@@ -1741,10 +1797,9 @@
         gap: 36px;
       }
 
+      /* Remove Add to Bag & Specs overlay buttons on mobile so denims are fully visible */
       .card-quick-actions {
-        opacity: 1;
-        transform: translateY(0);
-        gap: 8px;
+        display: none !important;
       }
 
       /* Mobile Touch Targets: >= 46px */
@@ -1863,9 +1918,9 @@
     .mobile-nav-panel {
       position: fixed;
       top: 0;
-      left: 0;
+      right: 0;
       width: 82%;
-      max-width: 360px;
+      max-width: 340px;
       height: 100vh;
       height: 100dvh;
       background-color: var(--token-bg-primary);
@@ -1873,9 +1928,9 @@
       padding: calc(24px + env(safe-area-inset-top, 0px)) 28px calc(28px + env(safe-area-inset-bottom, 0px));
       display: flex;
       flex-direction: column;
-      transform: translateX(-100%);
+      transform: translateX(100%);
       transition: transform 0.35s var(--ease-cartelle);
-      box-shadow: 8px 0 32px rgba(0, 0, 0, 0.08);
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.08);
       overscroll-behavior: contain;
     }
     .mobile-nav-panel.open {
@@ -1970,8 +2025,9 @@
       </div>
       <div class="mobile-nav-links">
         <a href="#vault" onclick="toggleMobileNav(false)">The Denim Vault</a>
+        <a href="javascript:void(0)" onclick="toggleMobileNav(false); setTimeout(() => toggleCartDrawer(true), 250);">Shopping Bag (<span id="mobileBagBadge">0</span>)</a>
         <a href="#vault" onclick="toggleMobileNav(false)">Fall 2026 Core</a>
-        <a href="#atelier" onclick="toggleMobileNav(false)">Flagship Atelier</a>
+        <a href="#atelier" onclick="toggleMobileNav(false)">Flagship Space</a>
       </div>
       <div class="mobile-nav-footer">
         <div>BANDRA WEST // 19.0560° N, 72.8332° E</div>
@@ -2716,6 +2772,8 @@
       const totalItems = bag.reduce((sum, item) => sum + item.qty, 0);
       badge.textContent = totalItems;
       drawerCount.textContent = totalItems;
+      const mobileBadge = document.getElementById('mobileBagBadge');
+      if (mobileBadge) mobileBadge.textContent = totalItems;
 
       if (bag.length === 0) {
         container.innerHTML = '<div class="cart-empty-message">Your shopping bag is currently empty.</div>';
