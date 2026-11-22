@@ -733,11 +733,7 @@
     }
 
     .product-spec-tag {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--token-text-secondary);
-      letter-spacing: -0.01em;
-      margin-top: 2px;
+      display: none !important;
     }
 
     /* ==========================================================================
@@ -1422,10 +1418,7 @@
     }
 
     .modal-desc-line {
-      font-size: 13px;
-      color: var(--token-text-secondary);
-      line-height: 1.45;
-      margin: 0;
+      display: none !important;
     }
 
     .modal-sub-label {
@@ -2121,7 +2114,6 @@
               </span>
             </div>
           </div>
-          <div class="product-spec-tag">Sun-faded Blue • 14.5oz Custom Slub • Relaxed Flare</div>
         </div>
       </article>
 
@@ -2149,7 +2141,6 @@
               <span class="price-active" data-price-active>RS. 1,199</span>
             </div>
           </div>
-          <div class="product-spec-tag">Deep Blue • 15.5oz Heavyweight Weave • Subtle Bootcut Stack</div>
         </div>
       </article>
 
@@ -2181,7 +2172,6 @@
               </span>
             </div>
           </div>
-          <div class="product-spec-tag">Black Rinse • Sulfur-Dyed Rigid Denim • Tailored Inseam</div>
         </div>
       </article>
 
@@ -2209,7 +2199,6 @@
               <span class="price-active" data-price-active>RS. 1,199</span>
             </div>
           </div>
-          <div class="product-spec-tag">Washed Grey • Mineral Washed Charcoal • Architectural Flare</div>
         </div>
       </article>
 
@@ -2241,7 +2230,6 @@
               </span>
             </div>
           </div>
-          <div class="product-spec-tag">Coastal Blue • Light Vintage Bleach • Signature Bootcut Hem</div>
         </div>
       </article>
 
@@ -2269,7 +2257,6 @@
               <span class="price-active" data-price-active>RS. 1,499</span>
             </div>
           </div>
-          <div class="product-spec-tag">Midnight Blue • Dark Indigo Rinse • Extended Hem Break</div>
         </div>
       </article>
 
@@ -2463,10 +2450,6 @@
           <div class="card-badge" id="modalBadge">Core Drop</div>
           <h2 class="modal-title" id="modalTitle">Vintage Bootcut Denim</h2>
           <div class="modal-price-line" id="modalPrice">RS. 1,199</div>
-          
-          <p class="modal-desc-line" id="modalDesc">
-            14.5oz custom slub denim • Relaxed bootcut flare
-          </p>
 
           <div>
             <span class="modal-sub-label">Size</span>
@@ -2833,7 +2816,8 @@
 
       document.getElementById('modalTitle').textContent = p.name;
       document.getElementById('modalBadge').textContent = p.badge;
-      document.getElementById('modalDesc').textContent = p.desc;
+      const descElem = document.getElementById('modalDesc');
+      if (descElem) descElem.textContent = p.desc;
       document.getElementById('modalImg').src = p.img;
 
       if (currentCurrency === 'INR') {
