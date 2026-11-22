@@ -1209,20 +1209,36 @@
     .qty-controls {
       display: inline-flex;
       align-items: center;
-      border: 1px solid var(--token-border-light);
+      border: 1px solid var(--token-border-subtle);
       border-radius: 4px;
+      overflow: hidden;
+      background-color: var(--token-bg-primary);
     }
 
     .qty-btn {
-      padding: 2px 8px;
-      font-size: 13px;
-      color: var(--token-text-secondary);
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--token-text-primary);
+      cursor: pointer;
+      background: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: background-color 0.15s ease;
     }
 
     .qty-val {
-      padding: 0 6px;
-      font-size: 12px;
-      font-weight: 500;
+      min-width: 28px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      color: var(--token-text-primary);
     }
 
     .cart-item-remove {
@@ -1428,21 +1444,25 @@
 
     .size-pill {
       min-width: 44px;
-      padding: 7px 12px;
-      border: 1px solid var(--token-border-light);
-      background-color: var(--token-bg-primary);
+      padding: 8px 14px;
+      border: 1px solid #E5E5E5;
+      background-color: #FFFFFF;
+      color: #121212;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       text-align: center;
       transition: all var(--transition-hover);
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .size-pill:hover,
     .size-pill.selected {
-      background-color: var(--token-text-primary);
-      color: var(--token-bg-primary);
-      border-color: var(--token-text-primary);
+      background-color: #121212;
+      color: #FFFFFF;
+      border-color: #121212;
     }
 
     /* Minimalist Measurement Header with CM / IN Toggle */
@@ -1568,10 +1588,11 @@
        ========================================================================== */
     .haptic-toast {
       position: fixed;
-      bottom: 32px;
-      right: 32px;
+      top: 20px;
+      top: calc(20px + env(safe-area-inset-top, 0px));
+      right: 24px;
       z-index: 4000;
-      padding: 14px 22px;
+      padding: 12px 20px;
       background-color: var(--token-text-primary);
       color: var(--token-bg-primary);
       font-size: 14px;
@@ -1583,9 +1604,9 @@
       align-items: center;
       gap: 12px;
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(-20px);
       pointer-events: none;
-      transition: all 0.35s var(--ease-cartelle);
+      transition: opacity 0.35s var(--ease-cartelle), transform 0.35s var(--ease-cartelle);
     }
 
     .haptic-toast.show {
@@ -1723,8 +1744,44 @@
       .card-quick-actions {
         opacity: 1;
         transform: translateY(0);
+        gap: 8px;
       }
 
+      /* Mobile Touch Targets: >= 46px */
+      .quick-add-btn,
+      .quick-view-btn {
+        min-height: 46px;
+        padding: 12px 14px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Cart Stepper Touch Targets: 40px x 40px */
+      .qty-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        font-size: 16px;
+      }
+
+      .qty-val {
+        min-width: 36px;
+        font-size: 14px;
+      }
+
+      /* Toast Notification: Top-anchored on mobile */
+      .haptic-toast {
+        top: calc(16px + env(safe-area-inset-top, 0px));
+        left: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+        max-width: 400px;
+        margin: 0 auto;
+        justify-content: center;
+      }
 
       .footer-grid {
         grid-template-columns: 1fr;
@@ -1742,6 +1799,46 @@
 
       .modal-window {
         padding: 24px;
+      }
+    }
+
+    /* Container Width & Horizontal Scroll Safety on Small Screens */
+    @media (max-width: 768px) {
+      html,
+      body,
+      main,
+      header,
+      footer,
+      section,
+      article,
+      .main-page-wrapper,
+      .hero-section,
+      .hero-content,
+      .collection-header-section,
+      .product-grid,
+      .rules-discipline-section,
+      .atelier-feature-section,
+      .atelier-grid,
+      .wordmark-footer,
+      .wordmark-footer-inner,
+      .wordmark-footer-bottom,
+      .sticky-header-container,
+      .sticky-nav-inner {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+      }
+
+      .quick-add-btn,
+      .quick-view-btn {
+        min-height: 46px !important;
+      }
+
+      .qty-btn {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
       }
     }
 
@@ -1952,7 +2049,7 @@
                alt="Vintage Bootcut Denim Sun-faded Blue Front View" loading="eager">
           
           <div class="card-quick-actions">
-            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p1', 'Vintage Bootcut Denim (Sun-faded Blue)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDOCTOBER20252.0-355.jpg?v=1762617260&width=800')">+ Add To Bag</button>
+            <button class="quick-add-btn" onclick="event.stopPropagation(); openProductModal('p1')">+ Add To Bag</button>
             <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p1')">Specs</button>
           </div>
         </div>
@@ -1984,7 +2081,7 @@
                alt="Vintage Bootcut Denim Deep Blue Studio Front View" loading="eager">
           
           <div class="card-quick-actions">
-            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p2', 'Vintage Bootcut Denim (Deep Blue)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDFEB2026-130.jpg?v=1771841238&width=800')">+ Add To Bag</button>
+            <button class="quick-add-btn" onclick="event.stopPropagation(); openProductModal('p2')">+ Add To Bag</button>
             <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p2')">Specs</button>
           </div>
         </div>
@@ -2012,7 +2109,7 @@
                alt="Vintage Bootcut Denim Black Rinse Detail Front" loading="eager">
           
           <div class="card-quick-actions">
-            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p3', 'Vintage Bootcut Denim (Black Rinse)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2025_5x4_HQ_-13.jpg?v=1737899144&width=800')">+ Add To Bag</button>
+            <button class="quick-add-btn" onclick="event.stopPropagation(); openProductModal('p3')">+ Add To Bag</button>
             <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p3')">Specs</button>
           </div>
         </div>
@@ -2044,7 +2141,7 @@
                alt="Vintage Bootcut Denim Washed Grey Rigid Denim" loading="eager">
           
           <div class="card-quick-actions">
-            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p4', 'Vintage Bootcut Denim (Washed Grey)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMARCH2026-142.jpg?v=1774380255&width=800')">+ Add To Bag</button>
+            <button class="quick-add-btn" onclick="event.stopPropagation(); openProductModal('p4')">+ Add To Bag</button>
             <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p4')">Specs</button>
           </div>
         </div>
@@ -2072,7 +2169,7 @@
                alt="Vintage Bootcut Denim Coastal Blue Front" loading="eager">
           
           <div class="card-quick-actions">
-            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p5', 'Vintage Bootcut Denim (Coastal Blue)', 1199, 15, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDMAY2026-57.jpg?v=1780597144&width=800')">+ Add To Bag</button>
+            <button class="quick-add-btn" onclick="event.stopPropagation(); openProductModal('p5')">+ Add To Bag</button>
             <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p5')">Specs</button>
           </div>
         </div>
@@ -2104,7 +2201,7 @@
                alt="Vintage Bootcut Denim Midnight Blue Front Shot" loading="eager">
           
           <div class="card-quick-actions">
-            <button class="quick-add-btn" onclick="event.stopPropagation(); addToBag('p6', 'Vintage Bootcut Denim (Midnight Blue)', 1499, 18, '32', 'https://cdn.shopify.com/s/files/1/0661/1478/1415/files/UNTLDJANUARY2026-76.jpg?v=1769587335&width=800')">+ Add To Bag</button>
+            <button class="quick-add-btn" onclick="event.stopPropagation(); openProductModal('p6')">+ Add To Bag</button>
             <button class="quick-view-btn" onclick="event.stopPropagation(); openProductModal('p6')">Specs</button>
           </div>
         </div>
