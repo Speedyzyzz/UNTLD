@@ -686,17 +686,20 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 12px;
+      gap: 10px;
+      width: 100%;
     }
 
     /* Preset .framer-styles-preset-13n02sm */
     .product-name {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 400;
-      line-height: 1.4em;
+      line-height: 1.35em;
       letter-spacing: -0.03em;
       color: var(--token-text-primary);
       transition: color var(--transition-hover);
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
     .product-card:hover .product-name {
@@ -706,30 +709,35 @@
     /* Preset .framer-styles-preset-1a6wygs & .framer-styles-preset-saf75d */
     .product-price-wrap {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       gap: 8px;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 400;
       line-height: 1.4em;
       letter-spacing: -0.02em;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
     }
 
     .price-active {
       color: var(--token-text-secondary);
+      white-space: nowrap !important;
+      display: inline-block;
     }
 
     .price-original {
       position: relative;
       color: var(--token-text-muted);
+      white-space: nowrap !important;
+      display: inline-block;
+      text-decoration: line-through !important;
+      text-decoration-thickness: 1.5px !important;
+      text-decoration-color: var(--token-text-muted) !important;
+      -webkit-text-decoration-line: line-through !important;
     }
 
     .price-strike-line {
-      position: absolute;
-      top: calc(47.8% - 0.5px);
-      left: 0;
-      right: 0;
-      height: 1px;
-      background-color: var(--token-strikethrough-bar);
+      display: none !important;
     }
 
     .product-spec-tag {
@@ -2108,10 +2116,7 @@
             <h2 class="product-name">Vintage Bootcut Denim</h2>
             <div class="product-price-wrap">
               <span class="price-active" data-price-active>RS. 1,199</span>
-              <span class="price-original" data-price-orig>
-                RS. 1,999
-                <span class="price-strike-line"></span>
-              </span>
+              <span class="price-original" data-price-orig>RS. 1,999</span>
             </div>
           </div>
         </div>
@@ -2166,10 +2171,7 @@
             <h2 class="product-name">Vintage Bootcut Denim (Black Rinse)</h2>
             <div class="product-price-wrap">
               <span class="price-active" data-price-active>RS. 1,199</span>
-              <span class="price-original" data-price-orig>
-                RS. 1,899
-                <span class="price-strike-line"></span>
-              </span>
+              <span class="price-original" data-price-orig>RS. 1,899</span>
             </div>
           </div>
         </div>
@@ -2224,10 +2226,7 @@
             <h2 class="product-name">Vintage Bootcut Denim (Coastal Blue)</h2>
             <div class="product-price-wrap">
               <span class="price-active" data-price-active>RS. 1,199</span>
-              <span class="price-original" data-price-orig>
-                RS. 1,799
-                <span class="price-strike-line"></span>
-              </span>
+              <span class="price-original" data-price-orig>RS. 1,799</span>
             </div>
           </div>
         </div>
@@ -2669,12 +2668,12 @@
         if (curr === 'INR') {
           if (activeElem) activeElem.textContent = 'RS. ' + parseInt(inr).toLocaleString('en-IN');
           if (origElem && inrOrig) {
-            origElem.innerHTML = 'RS. ' + parseInt(inrOrig).toLocaleString('en-IN') + '<span class="price-strike-line"></span>';
+            origElem.textContent = 'RS. ' + parseInt(inrOrig).toLocaleString('en-IN');
           }
         } else {
           if (activeElem) activeElem.textContent = 'USD $' + usd;
           if (origElem && usdOrig) {
-            origElem.innerHTML = 'USD $' + usdOrig + '<span class="price-strike-line"></span>';
+            origElem.textContent = 'USD $' + usdOrig;
           }
         }
       });
